@@ -61,15 +61,81 @@
                     <connections>
                         <outlet property="naviBar" destination="wTU-y6-3X3" id="rFQ-M0-qU3"/>
                         <outlet property="tableView" destination="iKM-Wy-PwW" id="ieo-o9-VUW"/>
+                        <segue destination="tS7-Yf-izn" kind="show" identifier="showCreateEdit" id="VOE-mH-kAZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1073" y="266"/>
         </scene>
+        <!--Create Edit View Controller-->
+        <scene sceneID="kKy-Rc-Hcm">
+            <objects>
+                <viewController id="tS7-Yf-izn" customClass="CreateEditViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="32G-bX-cfu"/>
+                        <viewControllerLayoutGuide type="bottom" id="fQl-Am-IXo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VmE-pq-GWq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGb-yR-A1M">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <color key="tintColor" red="0.0" green="1" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <items>
+                                    <navigationItem title="Create Note" id="4TJ-iH-Pvd">
+                                        <barButtonItem key="leftBarButtonItem" image="backButton" id="Ur3-z0-cg5">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="returnAction:" destination="tS7-Yf-izn" id="mpE-LF-7JF"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" image="saveButton" id="vWu-51-8w2">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="saveAction:" destination="tS7-Yf-izn" id="Eep-9J-1Qj"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tFJ-48-XZn">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done"/>
+                                <connections>
+                                    <outlet property="delegate" destination="VmE-pq-GWq" id="aRh-lF-jGF"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fQl-Am-IXo" firstAttribute="top" secondItem="tFJ-48-XZn" secondAttribute="bottom" id="8nA-Hl-4Zy"/>
+                            <constraint firstItem="tFJ-48-XZn" firstAttribute="leading" secondItem="VmE-pq-GWq" secondAttribute="leadingMargin" constant="-20" id="FkG-lG-ztq"/>
+                            <constraint firstItem="KGb-yR-A1M" firstAttribute="leading" secondItem="VmE-pq-GWq" secondAttribute="leadingMargin" constant="-20" id="KSL-30-Fvy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tFJ-48-XZn" secondAttribute="trailing" constant="-20" id="LSQ-fJ-cBL"/>
+                            <constraint firstItem="KGb-yR-A1M" firstAttribute="top" secondItem="32G-bX-cfu" secondAttribute="bottom" id="Nxx-Gz-Ywn"/>
+                            <constraint firstItem="tFJ-48-XZn" firstAttribute="top" secondItem="KGb-yR-A1M" secondAttribute="bottom" id="gHa-Us-SlH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KGb-yR-A1M" secondAttribute="trailing" constant="-20" id="rTi-Gl-7mB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="dataText" destination="tFJ-48-XZn" id="vck-GD-0qT"/>
+                        <outlet property="navigationBar" destination="KGb-yR-A1M" id="xq3-R7-hT0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9YQ-gP-dZV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1870" y="252"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="backButton" width="22" height="22"/>
         <image name="infoButton.png" width="22" height="22"/>
         <image name="logoutButton.png" width="22" height="22"/>
+        <image name="saveButton" width="22" height="22"/>
     </resources>
 </document>

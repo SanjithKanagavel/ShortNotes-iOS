@@ -11,5 +11,6 @@
 @interface NoteViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UIView *noteBackgroundView;
-
+@property (strong, nonatomic) IBOutlet UILabel *notesData;
+-(void) setViewColour : (UIColor *) color;
 @end

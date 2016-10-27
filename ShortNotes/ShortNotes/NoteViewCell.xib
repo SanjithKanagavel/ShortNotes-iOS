@@ -31,6 +31,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="noteBackgroundView" destination="Kde-7c-a4f" id="DHr-1F-lMf"/>
+                <outlet property="notesData" destination="Ajw-IB-kij" id="zYh-J1-EbZ"/>
             </connections>
             <point key="canvasLocation" x="261" y="-14"/>
         </tableViewCell>

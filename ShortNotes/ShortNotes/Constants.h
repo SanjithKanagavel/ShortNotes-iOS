@@ -8,20 +8,21 @@
 
 //Color
 static NSString *orangeColor1 = @"#E65100";
-static NSString *orangeColor2 = @"#E65100";
+static NSString *orangeColor2 = @"#FFC107";
 
 //Alert Text
 static NSString *infoTitle = @"Made with";
 static NSString *infoSubtitle = @"Steve and Apple 🍎";
 static NSString *infoButtonTitle = @"Cool";
 static NSString *logoutTitle = @"Logout from Dropbox ?";
-static NSString *logoutButton1Title = @"Confirm";
-static NSString *logoutButton2Title = @"Cancel";
+static NSString *confirm = @"Confirm";
+static NSString *cancel = @"Cancel";
+static NSString *confirmDelete = @"Confirm delete ?";
 
 //Font
 static NSString *fontName = @"HelveticaNeue-CondensedBlack";
 
-//Images
+//UIElements
 static NSString *naviTxt = @"blackTexture";
 static NSString *loginBtn = @"loginButton";
 static NSString *iconImg = @"icon";
@@ -30,9 +31,18 @@ static NSString *NoteViewCellStr = @"NoteViewCell";
 static NSString *infoButtonLStr = @"infoButtonL";
 static NSString *logoutButtonLStr = @"logoutButtonL";
 static NSString *cellTexture = @"greenTexture";
+static NSString *deleteBtn = @"deleteButton";
+static NSString *showCreateEditStr = @"showCreateEdit";
 
 //Attribute Keys
 static NSString *cornerRadiusStr = @"cornerRadius";
 
 //Attribute Values
 static NSString *logoutBtnCR = @"17.5f";
+
+//General Text
+static NSString *deleteStr = @"Delete";
+static NSString *newLine = @"\n";
+static NSString *space = @" ";
+static NSString *emptyStr = @"";
+static NSString *flatColorFormat = @"flat%@Color";

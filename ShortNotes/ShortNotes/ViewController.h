@@ -8,11 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
-@property (strong, nonatomic) IBOutlet UINavigationBar *naviBar;
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *logoutButton;
-@property (strong, nonatomic) IBOutlet UIBarButtonItem *infoButton;
+@interface ViewController : UIViewController<UIActionSheetDelegate>
+    @property (strong, nonatomic) IBOutlet UINavigationBar *naviBar;
+    @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @end
 

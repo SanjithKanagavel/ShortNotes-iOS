@@ -11,6 +11,9 @@
 		C523FC7D1DBF9E4B00537253 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C523FC7C1DBF9E4B00537253 /* SplashScreen.storyboard */; };
 		C523FC871DBFC53100537253 /* NoteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C523FC861DBFC53100537253 /* NoteViewCell.xib */; };
 		C523FC8A1DBFC63E00537253 /* NoteViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C523FC891DBFC63E00537253 /* NoteViewCell.m */; };
+		C523FC9E1DC0954100537253 /* CustomRowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C523FC9D1DC0954100537253 /* CustomRowAction.m */; };
+		C523FCA11DC0A60600537253 /* FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = C523FCA01DC0A60600537253 /* FlatColors.m */; };
+		C523FCA41DC0AE3D00537253 /* CreateEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C523FCA31DC0AE3D00537253 /* CreateEditViewController.m */; };
 		C5709A691DBF960200AE047C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5709A681DBF960200AE047C /* main.m */; };
 		C5709A6C1DBF960200AE047C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5709A6B1DBF960200AE047C /* AppDelegate.m */; };
 		C5709A6F1DBF960200AE047C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C5709A6E1DBF960200AE047C /* ViewController.m */; };
@@ -37,6 +40,12 @@
 		C523FC881DBFC63E00537253 /* NoteViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NoteViewCell.h; sourceTree = "<group>"; };
 		C523FC891DBFC63E00537253 /* NoteViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteViewCell.m; sourceTree = "<group>"; };
 		C523FC991DC07DFD00537253 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		C523FC9C1DC0954100537253 /* CustomRowAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRowAction.h; sourceTree = "<group>"; };
+		C523FC9D1DC0954100537253 /* CustomRowAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRowAction.m; sourceTree = "<group>"; };
+		C523FC9F1DC0A60600537253 /* FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatColors.h; sourceTree = SOURCE_ROOT; };
+		C523FCA01DC0A60600537253 /* FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatColors.m; sourceTree = SOURCE_ROOT; };
+		C523FCA21DC0AE3D00537253 /* CreateEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEditViewController.h; sourceTree = "<group>"; };
+		C523FCA31DC0AE3D00537253 /* CreateEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEditViewController.m; sourceTree = "<group>"; };
 		C5709A641DBF960200AE047C /* ShortNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5709A681DBF960200AE047C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C5709A6A1DBF960200AE047C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -122,6 +131,8 @@
 		C5709A661DBF960200AE047C /* ShortNotes */ = {
 			isa = PBXGroup;
 			children = (
+				C523FC9F1DC0A60600537253 /* FlatColors.h */,
+				C523FCA01DC0A60600537253 /* FlatColors.m */,
 				C5709A6A1DBF960200AE047C /* AppDelegate.h */,
 				C5709A6B1DBF960200AE047C /* AppDelegate.m */,
 				C523FC7C1DBF9E4B00537253 /* SplashScreen.storyboard */,
@@ -131,10 +142,14 @@
 				C523FC881DBFC63E00537253 /* NoteViewCell.h */,
 				C523FC891DBFC63E00537253 /* NoteViewCell.m */,
 				C5709A701DBF960200AE047C /* Main.storyboard */,
+				C523FCA21DC0AE3D00537253 /* CreateEditViewController.h */,
+				C523FCA31DC0AE3D00537253 /* CreateEditViewController.m */,
 				C5709A731DBF960200AE047C /* Assets.xcassets */,
 				C5709A781DBF960200AE047C /* Info.plist */,
 				C5709A671DBF960200AE047C /* Supporting Files */,
 				C523FC991DC07DFD00537253 /* Constants.h */,
+				C523FC9C1DC0954100537253 /* CustomRowAction.h */,
+				C523FC9D1DC0954100537253 /* CustomRowAction.m */,
 			);
 			path = ShortNotes;
 			sourceTree = "<group>";
@@ -277,10 +292,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C523FCA11DC0A60600537253 /* FlatColors.m in Sources */,
 				C5709A6F1DBF960200AE047C /* ViewController.m in Sources */,
 				C5709A6C1DBF960200AE047C /* AppDelegate.m in Sources */,
 				C523FC8A1DBFC63E00537253 /* NoteViewCell.m in Sources */,
 				C5709A691DBF960200AE047C /* main.m in Sources */,
+				C523FC9E1DC0954100537253 /* CustomRowAction.m in Sources */,
+				C523FCA41DC0AE3D00537253 /* CreateEditViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -5,15 +5,12 @@
 //  Created by Sanjith Kanagavel on 25/10/16.
 //  Copyright © 2016 Sanjith Kanagavel. All rights reserved.
 //
-
+#import "CreateEditViewController.h"
 #import "ViewController.h"
 #import "NoteViewCell.h"
 #import "SCLAlertView.h"
 #import "Constants.h"
-
-@interface ViewController ()
-
-@end
+#import "CustomRowAction.h"
 
 @implementation ViewController
 
@@ -23,6 +20,8 @@ double SCREEN_CENTER_Y;
 SCLAlertView *alert;
 UIView *syncStatusView;
 UIView *loginView;
+NSArray *colors;
+NSUInteger colorIndex;
 
 #pragma mark - View Functions
 /*
@@ -31,13 +30,12 @@ UIView *loginView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initLocalVariables];
-    
     [self configureBaseScreen];
     
-    if(true) {
+    if(false) {
         [self showLoginScreen];
     }
-    
+    //[self showSyncStatus];
 }
 
 /*
@@ -80,7 +78,9 @@ UIView *loginView;
     c3 = [[UIView alloc]initWithFrame:CGRectMake(statusCenterX-50,5,20,20)];
     c3.layer.cornerRadius=10;
     [c3 setBackgroundColor:[self colorFromHexString:orangeColor2]];
-    
+    c1.alpha = 0;
+    c2.alpha = 0;
+    c3.alpha = 0;
     [syncStatusView addSubview:c3];
     [syncStatusView addSubview:c2];
     [syncStatusView addSubview:c1];
@@ -142,6 +142,7 @@ UIView *loginView;
     [self styleNaviBar];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.indicatorStyle = UIScrollViewIndicatorStyleBlack;
+    self.tableView.separatorColor = [UIColor clearColor];
     [self.tableView registerClass:[NoteViewCell class] forCellReuseIdentifier:NoteViewCellStr];
 }
 
@@ -203,7 +204,7 @@ UIView *loginView;
  * Function to create new note
  */
 -(void) createNewNoteAction {
-    
+   [self _presentWithSegueIdentifier:showCreateEditStr animated:NO];
 }
 
 /*
@@ -226,8 +227,8 @@ UIView *loginView;
     alert.shouldDismissOnTapOutside = YES;
     alert.showAnimationType = SlideOutFromCenter;
     alert.hideAnimationType = SlideOutToCenter;
-    SCLButton *logoutButton = [alert addButton:logoutButton1Title actionBlock:^{ }];
-    SCLButton *cancelButton = [alert addButton:logoutButton2Title actionBlock:^{ }];
+    SCLButton *logoutButton = [alert addButton:confirm actionBlock:^{ }];
+    SCLButton *cancelButton = [alert addButton:cancel actionBlock:^{ }];
     ButtonFormatBlock buttonFormatBlock = ^NSDictionary* (void) {
         NSMutableDictionary *buttonConfig = [[NSMutableDictionary alloc] init];
         buttonConfig[cornerRadiusStr] = logoutBtnCR;
@@ -241,6 +242,31 @@ UIView *loginView;
     [alert showCustom:self image:[UIImage imageNamed:logoutButtonLStr] color:color title:logoutTitle subTitle:nil closeButtonTitle:nil duration:0.0f];
 }
 
+/*
+ * Delete note action
+ */
+-(void) deleteTaskAction {
+    alert = [[SCLAlertView alloc] init];
+    alert.shouldDismissOnTapOutside = YES;
+    alert.showAnimationType = SlideOutFromCenter;
+    alert.hideAnimationType = SlideOutToCenter;
+    SCLButton *confrimButton = [alert addButton:confirm actionBlock:^{
+        [self.tableView setEditing:NO animated:YES];
+    }];
+    SCLButton *cancelButton = [alert addButton:cancel actionBlock:^{
+    }];
+    
+    ButtonFormatBlock buttonFormatBlock = ^NSDictionary* (void) {
+        NSMutableDictionary *buttonConfig = [[NSMutableDictionary alloc] init];
+        buttonConfig[cornerRadiusStr] = logoutBtnCR;
+        return buttonConfig;
+    };
+    confrimButton.buttonFormatBlock = buttonFormatBlock;
+    cancelButton.buttonFormatBlock = buttonFormatBlock;
+    
+    UIColor *color = [UIColor colorWithRed:65.0/255.0 green:64.0/255.0 blue:144.0/255.0 alpha:1.0];
+    [alert showCustom:self image:[UIImage imageNamed:deleteBtn] color:color title:confirmDelete subTitle:nil closeButtonTitle:nil duration:0.0f];
+}
 
 #pragma mark - UITableView Functions
 
@@ -257,9 +283,15 @@ UIView *loginView;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (colorIndex >= colors.count) {
+        colorIndex = 0;
+    }
+    
     NoteViewCell *cell;
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:NoteViewCellStr owner:self options:nil];
     cell = [nib objectAtIndex:0];
+    [cell setViewColour:[self colorForName:colors[colorIndex]]];
+    colorIndex++;
     return cell;
 }
 
@@ -267,18 +299,45 @@ UIView *loginView;
     return YES;
 }
 
+-(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+   
+    CustomRowAction *add = [CustomRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:deleteStr icon:[UIImage imageNamed:deleteBtn] handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
+            [self deleteTaskAction];
+    }];
+    add.backgroundColor = UIColor.orangeColor;
+    return @[add];
+}
+
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 100;
+    return 105;
 }
 
-#pragma mark - View Functions
+
+
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+        
+}
+
+- (void)_presentWithSegueIdentifier:(NSString *)segueIdentifier animated:(BOOL)animated
+{
+    if (animated) {
+        [self performSegueWithIdentifier:segueIdentifier sender:nil];
+    } else {
+        [UIView performWithoutAnimation:^{
+            [self performSegueWithIdentifier:segueIdentifier sender:nil];
+        }];
+    }
+}
+
+#pragma mark - Other View Functions
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -302,6 +361,17 @@ UIView *loginView;
     return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
 }
 
+/*
+ * Function to load material colours for rows
+ */
+
+- (UIColor *)colorForName:(NSString *)name {
+    NSString *sanitizedName = [name stringByReplacingOccurrencesOfString:space withString:emptyStr];
+    NSString *selectorString = [NSString stringWithFormat:flatColorFormat, sanitizedName];
+    Class colorClass = [UIColor class];
+    return [colorClass performSelector:NSSelectorFromString(selectorString)];
+}
+
 
 /*
  * Function for setting local variables like screen center x - y
@@ -309,6 +379,27 @@ UIView *loginView;
 -(void) initLocalVariables {
     SCREEN_CENTER_X=[[UIScreen mainScreen]bounds].size.width/2;
     SCREEN_CENTER_Y=[[UIScreen mainScreen]bounds].size.height/2;
+    colors = @[
+               @"Turquoise",
+               @"Green Sea",
+               @"Emerald",
+               @"Nephritis",
+               @"Peter River",
+               @"Belize Hole",
+               @"Amethyst",
+               @"Wisteria",
+               @"Wet Asphalt",
+               @"Midnight Blue",
+               @"Sun Flower",
+               @"Orange",
+               @"Carrot",
+               @"Pumpkin",
+               @"Alizarin",
+               @"Pomegranate",
+               @"Concrete",
+               @"Asbestos"
+               ];
+    colorIndex = 0;
 }
 
 

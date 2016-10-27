@@ -13,13 +13,28 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.noteBackgroundView setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:cellTexture]]];
+    [self styleView];
+}
+
+-(void) styleView {
+    [self.noteBackgroundView.layer setCornerRadius:30.0f];
+    [self.noteBackgroundView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [self.noteBackgroundView.layer setBorderWidth:1.5f];
+    [self.noteBackgroundView.layer setShadowColor:[UIColor blackColor].CGColor];
+    [self.noteBackgroundView.layer setShadowOpacity:0.8];
+    [self.noteBackgroundView.layer setShadowRadius:3.0];
+    [self.noteBackgroundView.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
+    UIView * selectedBackgroundView = [[UIView alloc] initWithFrame:self.noteBackgroundView.frame];
+    [selectedBackgroundView setBackgroundColor:[UIColor whiteColor]]; 
+    [self setSelectedBackgroundView:selectedBackgroundView];
+}
 
-    // Configure the view for the selected state
+-(void) setViewColour : (UIColor *) color{
+    [self.noteBackgroundView setBackgroundColor:color];
 }
 
 @end
