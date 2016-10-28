@@ -11,17 +11,28 @@
 #import "SCLAlertView.h"
 #import "Constants.h"
 #import "CustomRowAction.h"
+#import "Dropbox/Dropbox.h"
+#import "NoteData.h"
 
 @implementation ViewController
 
-double SCREEN_CENTER_X;
-double SCREEN_CENTER_Y;
-
 SCLAlertView *alert;
+
+DBAccountManager *accountManager;
+
 UIView *syncStatusView;
 UIView *loginView;
+UILabel *noNoteTextLbl;
+
 NSArray *colors;
-NSUInteger colorIndex;
+NSMutableArray *notesArray;
+NSUInteger deleteIndex;
+NSUInteger clickIndex;
+BOOL isCreate = true;
+BOOL isSyncing = false;
+
+double SCREEN_CENTER_X;
+double SCREEN_CENTER_Y;
 
 #pragma mark - View Functions
 /*
@@ -31,11 +42,13 @@ NSUInteger colorIndex;
     [super viewDidLoad];
     [self initLocalVariables];
     [self configureBaseScreen];
-    
-    if(false) {
+    [self getDropboxAccount];
+    if(!self.account) {
         [self showLoginScreen];
     }
-    //[self showSyncStatus];
+    else {
+        [self dropBoxInit];
+    }
 }
 
 /*
@@ -55,18 +68,23 @@ NSUInteger colorIndex;
     alert = [[SCLAlertView alloc] init];
 }
 
+
+
 #pragma mark - Sync Status Functions
 
 /*
  * Function declaration of SyncStatusBar
  */
 -(void) showSyncStatus {
+    
     UIView *c1,*c2,*c3;
     if(syncStatusView == nil) {
      syncStatusView = [[UIView alloc]initWithFrame:CGRectMake(0,self.naviBar.frame.size.height, SCREEN_CENTER_X*2, 30)];
     }
+    else {
+        return;
+    }
     float statusCenterX = syncStatusView.frame.size.width/2;
-    
     [syncStatusView setBackgroundColor:[self colorFromHexString:orangeColor1]];
     c1 = [[UIView alloc]initWithFrame:CGRectMake(statusCenterX-10,5,20,20)];
     c1.layer.cornerRadius=10;
@@ -119,6 +137,9 @@ NSUInteger colorIndex;
  * Hide SyncStatusBar and Animation
  */
 -(void) hideSyncStatus {
+    if(!syncStatusView) {
+        return;
+    }
     [UIView animateWithDuration:2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         [syncStatusView setFrame:CGRectMake(syncStatusView.frame.origin.x, syncStatusView.frame.origin.y-30, syncStatusView.frame.size.width,syncStatusView.frame.size.height )];
     } completion:^(BOOL finished){
@@ -150,6 +171,9 @@ NSUInteger colorIndex;
  * Function to show Login Screen
  */
 -(void) showLoginScreen {
+    if(loginView) {
+        return ;
+    }
     loginView = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y,self.view.frame.size.width, self.view.frame.size.height)];
     UIVisualEffect *blurEffect;
     blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
@@ -164,7 +188,7 @@ NSUInteger colorIndex;
     [loginButton setBackgroundImage:[UIImage imageNamed:loginBtn] forState:UIControlStateNormal];
     loginButton.frame = CGRectMake(0, 0, 210, 55);
     [loginButton setCenter:CGPointMake(SCREEN_CENTER_X,(SCREEN_CENTER_Y*2)-100)];
-    [loginButton addTarget:self action:@selector(hideLoginScreen) forControlEvents:UIControlEventTouchUpInside];
+    [loginButton addTarget:self action:@selector(loginDropBox) forControlEvents:UIControlEventTouchUpInside];
     [loginView addSubview:visualEffectView];
     [loginView addSubview:loginImage];
     [loginView addSubview:loginButton];
@@ -176,9 +200,12 @@ NSUInteger colorIndex;
  * Function to hide Login Screen
  */
 -(void) hideLoginScreen {
-    loginView.alpha = 1;
+    if(!loginView) {
+        return;
+    }
     [UIView animateWithDuration:1.0 delay:0 options:UIViewAnimationOptionCurveEaseIn animations:^{
         loginView.alpha = 0;
+        [loginView removeFromSuperview];
         loginView = nil;
     } completion:nil];
 }
@@ -195,6 +222,7 @@ NSUInteger colorIndex;
                                                            [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
                                                            shadow, NSShadowAttributeName,
                                                            [UIFont fontWithName:fontName size:21.0], NSFontAttributeName, nil]];
+    
 }
 
 
@@ -204,7 +232,8 @@ NSUInteger colorIndex;
  * Function to create new note
  */
 -(void) createNewNoteAction {
-   [self _presentWithSegueIdentifier:showCreateEditStr animated:NO];
+    isCreate = true;
+    [self _presentWithSegueIdentifier:showCreateEditStr animated:NO];
 }
 
 /*
@@ -218,6 +247,16 @@ NSUInteger colorIndex;
     UIColor *color = [UIColor colorWithRed:65.0/255.0 green:64.0/255.0 blue:144.0/255.0 alpha:1.0];
     [alert showCustom:self image:[UIImage imageNamed:infoButtonLStr] color:color title:infoTitle subTitle:infoSubtitle closeButtonTitle:nil duration:0.0f];
 }
+/*
+ * Login Dropbox Function
+ */
+- (void) loginDropBox {
+    if(self.account) {
+        [self hideLoginScreen];
+        return;
+    }
+    [accountManager linkFromController:self];
+}
 
 /*
  * Function to show logout alert section
@@ -227,7 +266,12 @@ NSUInteger colorIndex;
     alert.shouldDismissOnTapOutside = YES;
     alert.showAnimationType = SlideOutFromCenter;
     alert.hideAnimationType = SlideOutToCenter;
-    SCLButton *logoutButton = [alert addButton:confirm actionBlock:^{ }];
+    SCLButton *logoutButton = [alert addButton:confirm actionBlock:^{
+        [[accountManager.linkedAccounts objectAtIndex:0] unlink];
+        [self.fileSystem removeObserver:self];
+        self.account = nil;
+        self.fileSystem = nil;
+    }];
     SCLButton *cancelButton = [alert addButton:cancel actionBlock:^{ }];
     ButtonFormatBlock buttonFormatBlock = ^NSDictionary* (void) {
         NSMutableDictionary *buttonConfig = [[NSMutableDictionary alloc] init];
@@ -251,7 +295,13 @@ NSUInteger colorIndex;
     alert.showAnimationType = SlideOutFromCenter;
     alert.hideAnimationType = SlideOutToCenter;
     SCLButton *confrimButton = [alert addButton:confirm actionBlock:^{
-        [self.tableView setEditing:NO animated:YES];
+        DBFileInfo *info = ((NoteData *)[notesArray objectAtIndex:deleteIndex]).dbFileInfo;
+        if ([self.fileSystem deletePath:info.path error:nil]) {
+            [self.tableView setEditing:NO animated:YES];
+        }
+        else {
+            
+        }
     }];
     SCLButton *cancelButton = [alert addButton:cancel actionBlock:^{
     }];
@@ -271,6 +321,9 @@ NSUInteger colorIndex;
 #pragma mark - UITableView Functions
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    isCreate = false;
+    clickIndex = [indexPath row];
+    [self _presentWithSegueIdentifier:showCreateEditStr animated:NO];
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
@@ -279,17 +332,28 @@ NSUInteger colorIndex;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 10;
+    NSInteger count = (!notesArray) ? 0 : [notesArray count];
+    if(count == 0){
+        [self showNoNoteTextLabel];
+    } else {
+        [self hideNoNoteTextLabel];
+    }
+    return count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (colorIndex >= colors.count) {
-        colorIndex = 0;
+    if (!notesArray) {
+        return nil;
     }
-    
+    NSUInteger colorIndex = (NSUInteger)indexPath.row;
+    if( colorIndex > [colors count] ) {
+        colorIndex = colorIndex - [colors count];
+    }
     NoteViewCell *cell;
     NSArray *nib = [[NSBundle mainBundle] loadNibNamed:NoteViewCellStr owner:self options:nil];
     cell = [nib objectAtIndex:0];
+    NoteData *data = [notesArray objectAtIndex:[indexPath row]];
+    cell.notesData.text = data.noteDesc;
     [cell setViewColour:[self colorForName:colors[colorIndex]]];
     colorIndex++;
     return cell;
@@ -303,6 +367,7 @@ NSUInteger colorIndex;
    
     CustomRowAction *add = [CustomRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:deleteStr icon:[UIImage imageNamed:deleteBtn] handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
             [self deleteTaskAction];
+            deleteIndex = [indexPath row];
     }];
     add.backgroundColor = UIColor.orangeColor;
     return @[add];
@@ -321,9 +386,22 @@ NSUInteger colorIndex;
 
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-        
+    
+    CreateEditViewController *vc = [segue destinationViewController];
+    DBFileInfo *dbFileInfo = nil;
+    if(!isCreate) {
+        NoteData * nd = (NoteData *)[notesArray objectAtIndex:clickIndex];
+        vc.dataTextStr = nd.noteDesc;
+        dbFileInfo = nd.dbFileInfo;
+    }
+    else {
+        vc.dataTextStr = emptyStr;
+    }
+    vc.isCreate = isCreate;
+    vc.dbFileInfo = dbFileInfo;
+    vc.fileSystem = self.fileSystem;
+    vc.rootPath = self.root;
 }
 
 - (void)_presentWithSegueIdentifier:(NSString *)segueIdentifier animated:(BOOL)animated
@@ -399,10 +477,136 @@ NSUInteger colorIndex;
                @"Concrete",
                @"Asbestos"
                ];
-    colorIndex = 0;
 }
 
 
+#pragma mark - Dropbox Functions
+
+-(void) getDropboxAccount {
+    
+    accountManager= [[DBAccountManager alloc] initWithAppKey:@"udg615mw45s5izb" secret:@"lggw7vjvrqmsq7h"]; //Identifies the application
+    [DBAccountManager setSharedManager:accountManager];
+    self.account = [accountManager.linkedAccounts objectAtIndex:0];
+    __weak ViewController *weakSelf = self;
+    [accountManager addObserver:self block: ^(DBAccount *acc) {
+        [weakSelf accountUpdated:acc];
+    }];
+}
+
+-(void) accountUpdated : (DBAccount *) account {
+    if (account.linked) {
+        [self hideLoginScreen];
+    }
+    else if(!account.linked) {
+        [notesArray removeAllObjects];
+        [self reloadData];
+        [self showLoginScreen];
+    }
+}
+
+-(void) dropBoxInit {
+    if( self.account ) {
+        if(!self.fileSystem) {
+            self.fileSystem = [[DBFilesystem alloc] initWithAccount:self.account];
+        }
+        if(!self.root) {
+            self.root = [DBPath root];
+        }
+        __weak ViewController *vc = self;
+        [self.fileSystem addObserver:self block:^() {
+            if(isSyncing) {
+                return;
+            }
+            [vc showSyncStatus];
+            [vc reloadData];
+        }];
+        [self.fileSystem addObserver:self forPathAndChildren:self.root block:^() {
+            if(isSyncing) {
+                return;
+            }
+            [vc loadFiles];
+        }];
+        [self loadFiles];
+    }
+}
+
+-(void) reloadData {
+    [self.tableView reloadData];
+    [self hideSyncStatus];
+    isSyncing = false;
+}
+
+#pragma mark - private methods
+
+NSInteger sortFileInfos(id obj1, id obj2, void *ctx) {
+    DBFileInfo *file1 = (DBFileInfo *) obj1;
+    DBFileInfo *file2 = (DBFileInfo *) obj2;
+    return [[file1.path name] compare:[file2.path name]];
+}
+
+- (void)loadFiles {
+    if(isSyncing) {
+        return;
+    }
+    isSyncing = true;
+    [self showSyncStatus];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^() {
+        NSArray *immContents = [self.fileSystem listFolder:self.root error:nil];
+        NSMutableArray *mContents = [NSMutableArray arrayWithArray:immContents];
+        [mContents sortUsingFunction:sortFileInfos context:NULL];
+        [self loadFileData:mContents];
+    });
+}
 
 
+-(void) loadFileData : (NSMutableArray *) mContents {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^() {
+        NSMutableArray *tempArray = [[NSMutableArray alloc]init];
+        for (id object in mContents)
+        {
+            NoteData *data = [[NoteData  alloc] init];
+            DBFileInfo *info = object;
+            NSError *error = nil;
+            DBFile *file = [self.fileSystem openFile:info.path error:&error];
+            if (file) {
+              NSString *str= [file readString:nil];
+              data.noteDesc = str;
+            }
+            else {
+                data.noteDesc = [[error userInfo]description];
+            }
+            data.dbFileInfo = info;
+            [tempArray addObject:data];
+            [file close];
+            [NSThread sleepForTimeInterval:0.1];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^() {
+            notesArray = tempArray;
+            [self reloadData];
+        });
+    });
+}
+
+#pragma  mark - No Note Label functions
+
+-(void) showNoNoteTextLabel {
+    if(noNoteTextLbl)
+    {
+        return;
+    }
+    noNoteTextLbl = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 220 , 40)];
+    noNoteTextLbl.font = [UIFont fontWithName:fontName size:fontSize];
+    noNoteTextLbl.text = noNoteLabel;
+    noNoteTextLbl.textAlignment = NSTextAlignmentCenter;
+    noNoteTextLbl.center = CGPointMake(SCREEN_CENTER_X, SCREEN_CENTER_Y);
+    [self.view addSubview:noNoteTextLbl];
+}
+
+-(void) hideNoNoteTextLabel {
+    if(!noNoteTextLbl) {
+        return;
+    }
+    [noNoteTextLbl removeFromSuperview];
+    noNoteTextLbl = nil;
+}
 @end

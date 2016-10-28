@@ -7,9 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Dropbox/Dropbox.h>
 
 @interface ViewController : UIViewController<UIActionSheetDelegate>
     @property (strong, nonatomic) IBOutlet UINavigationBar *naviBar;
     @property (strong, nonatomic) IBOutlet UITableView *tableView;
+    @property (strong, nonatomic) DBAccount *account;
+    @property (strong, nonatomic) DBFilesystem *fileSystem;
+    @property (strong, nonatomic) DBPath *root;
+    -(void) dropBoxInit;
 @end
 

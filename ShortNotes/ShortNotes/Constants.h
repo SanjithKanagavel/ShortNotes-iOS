@@ -16,11 +16,14 @@ static NSString *infoSubtitle = @"Steve and Apple 🍎";
 static NSString *infoButtonTitle = @"Cool";
 static NSString *logoutTitle = @"Logout from Dropbox ?";
 static NSString *confirm = @"Confirm";
+static NSString *discard = @"Discard";
 static NSString *cancel = @"Cancel";
 static NSString *confirmDelete = @"Confirm delete ?";
+static NSString *discardDraft = @"Discard Changes ?";
 
 //Font
 static NSString *fontName = @"HelveticaNeue-CondensedBlack";
+static NSInteger fontSize = 20;
 
 //UIElements
 static NSString *naviTxt = @"blackTexture";
@@ -30,6 +33,7 @@ static NSString *addNoteBtn = @"addNote";
 static NSString *NoteViewCellStr = @"NoteViewCell";
 static NSString *infoButtonLStr = @"infoButtonL";
 static NSString *logoutButtonLStr = @"logoutButtonL";
+static NSString *saveButtonLStr = @"saveButtonL";
 static NSString *cellTexture = @"greenTexture";
 static NSString *deleteBtn = @"deleteButton";
 static NSString *showCreateEditStr = @"showCreateEdit";
@@ -46,3 +50,6 @@ static NSString *newLine = @"\n";
 static NSString *space = @" ";
 static NSString *emptyStr = @"";
 static NSString *flatColorFormat = @"flat%@Color";
+static NSString *createStr = @"Create Note";
+static NSString *editStr = @"Edit Note";
+static NSString *noNoteLabel = @"No Notes Available";

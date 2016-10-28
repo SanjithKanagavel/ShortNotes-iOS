@@ -29,6 +29,7 @@
 		C5709A8E1DBF96E400AE047C /* Dropbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5709A8D1DBF96E400AE047C /* Dropbox.framework */; };
 		C5709A941DBF97B800AE047C /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C5709A931DBF97B800AE047C /* libz.1.dylib */; };
 		C5709A961DBF981600AE047C /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C5709A951DBF981600AE047C /* libc++.1.dylib */; };
+		C5731EAA1DC2379D00F78C14 /* NoteData.m in Sources */ = {isa = PBXBuildFile; fileRef = C5731EA91DC2379D00F78C14 /* NoteData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,8 @@
 		C5709A8F1DBF976300AE047C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		C5709A931DBF97B800AE047C /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
 		C5709A951DBF981600AE047C /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "../../../../../../usr/lib/libc++.1.dylib"; sourceTree = "<group>"; };
+		C5731EA91DC2379D00F78C14 /* NoteData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteData.m; sourceTree = "<group>"; };
+		C5731EAB1DC2452B00F78C14 /* NoteData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteData.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +141,8 @@
 				C523FC7C1DBF9E4B00537253 /* SplashScreen.storyboard */,
 				C5709A6D1DBF960200AE047C /* ViewController.h */,
 				C5709A6E1DBF960200AE047C /* ViewController.m */,
+				C5731EA91DC2379D00F78C14 /* NoteData.m */,
+				C5731EAB1DC2452B00F78C14 /* NoteData.h */,
 				C523FC861DBFC53100537253 /* NoteViewCell.xib */,
 				C523FC881DBFC63E00537253 /* NoteViewCell.h */,
 				C523FC891DBFC63E00537253 /* NoteViewCell.m */,
@@ -297,6 +302,7 @@
 				C5709A6C1DBF960200AE047C /* AppDelegate.m in Sources */,
 				C523FC8A1DBFC63E00537253 /* NoteViewCell.m in Sources */,
 				C5709A691DBF960200AE047C /* main.m in Sources */,
+				C5731EAA1DC2379D00F78C14 /* NoteData.m in Sources */,
 				C523FC9E1DC0954100537253 /* CustomRowAction.m in Sources */,
 				C523FCA41DC0AE3D00537253 /* CreateEditViewController.m in Sources */,
 			);

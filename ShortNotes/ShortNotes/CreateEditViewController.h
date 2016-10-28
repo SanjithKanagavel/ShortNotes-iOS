@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Dropbox/Dropbox.h"
 
 @interface CreateEditViewController : UIViewController<UITextViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UINavigationBar *navigationBar;
 @property (strong, nonatomic) IBOutlet UITextView *dataText;
-
+@property BOOL isCreate;
+@property NSString* dataTextStr;
+@property DBFileInfo *dbFileInfo;
+@property DBFilesystem *fileSystem;
+@property DBPath *rootPath;
 @end

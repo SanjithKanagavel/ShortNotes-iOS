@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "ViewController.h"
 #import <Dropbox/Dropbox.h>
 
 @interface AppDelegate ()
@@ -18,8 +19,26 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+   
     return YES;
 }
+
+- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
+  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
+    DBAccount *account = [[DBAccountManager sharedManager] handleOpenURL:url];
+    if (account) {
+        DBFilesystem *filesystem = [[DBFilesystem alloc] initWithAccount:account];
+        DBPath *root = [DBPath root];
+        ViewController* mainController = (ViewController*)  self.window.rootViewController;
+        mainController.account = account;
+        mainController.fileSystem = filesystem;
+        mainController.root = root;
+        [mainController dropBoxInit];
+    }
+    // Add whatever other url handling code your app requires here
+    return YES;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
