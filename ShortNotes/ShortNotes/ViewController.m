@@ -1,4 +1,4 @@
-//
+    //
 //  ViewController.m
 //  ShortNotes
 //
@@ -571,6 +571,10 @@ NSInteger sortFileInfos(id obj1, id obj2, void *ctx) {
             if (file) {
               NSString *str= [file readString:nil];
               data.noteDesc = str;
+                if([str isEqual:emptyStr]) {
+                    isSyncing = false;
+                    break;
+                }
             }
             else {
                 data.noteDesc = [[error userInfo]description];
@@ -581,8 +585,10 @@ NSInteger sortFileInfos(id obj1, id obj2, void *ctx) {
             [NSThread sleepForTimeInterval:0.1];
         }
         dispatch_async(dispatch_get_main_queue(), ^() {
-            notesArray = tempArray;
-            [self reloadData];
+            if(isSyncing) {
+                notesArray = tempArray;
+                [self reloadData];
+            }
         });
     });
 }

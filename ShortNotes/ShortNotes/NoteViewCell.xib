@@ -3,22 +3,23 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="NoteViewCell" rowHeight="106" id="gGa-73-cRm" customClass="NoteViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="106"/>
+            <rect key="frame" x="0.0" y="0.0" width="315" height="106"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gGa-73-cRm" id="a3L-i2-ryK">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="105"/>
+                <rect key="frame" x="0.0" y="0.0" width="315" height="105"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kde-7c-a4f">
-                        <rect key="frame" x="13" y="6" width="302" height="93"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kde-7c-a4f">
+                        <rect key="frame" x="13" y="6" width="285" height="93"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ajw-IB-kij">
-                                <rect key="frame" x="8" y="8" width="289" height="77"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ajw-IB-kij">
+                                <rect key="frame" x="8" y="8" width="269" height="77"/>
                                 <string key="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBlack" family="Helvetica Neue" pointSize="17"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -28,12 +29,22 @@
                         <color key="backgroundColor" red="0.49411764705882355" green="0.73725490196078436" blue="0.12156862745098039" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="Ajw-IB-kij" secondAttribute="bottom" constant="6" id="21A-z5-6Le"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="Kde-7c-a4f" secondAttribute="bottom" constant="-2" id="8qr-fc-fmy"/>
+                    <constraint firstItem="Ajw-IB-kij" firstAttribute="top" secondItem="a3L-i2-ryK" secondAttribute="topMargin" constant="6" id="T2V-vC-QsY"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Kde-7c-a4f" secondAttribute="trailing" constant="9" id="j95-0D-AOI"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Ajw-IB-kij" secondAttribute="trailing" constant="17" id="mPL-CL-W5X"/>
+                    <constraint firstItem="Kde-7c-a4f" firstAttribute="leading" secondItem="a3L-i2-ryK" secondAttribute="leadingMargin" constant="5" id="nRV-XT-rVQ"/>
+                    <constraint firstItem="Ajw-IB-kij" firstAttribute="leading" secondItem="a3L-i2-ryK" secondAttribute="leadingMargin" constant="13" id="si6-AL-sra"/>
+                    <constraint firstItem="Kde-7c-a4f" firstAttribute="top" secondItem="a3L-i2-ryK" secondAttribute="topMargin" constant="-2" id="voI-Lu-XpM"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="noteBackgroundView" destination="Kde-7c-a4f" id="DHr-1F-lMf"/>
                 <outlet property="notesData" destination="Ajw-IB-kij" id="zYh-J1-EbZ"/>
             </connections>
-            <point key="canvasLocation" x="261" y="-14"/>
+            <point key="canvasLocation" x="258.5" y="-14"/>
         </tableViewCell>
     </objects>
 </document>

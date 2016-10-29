@@ -235,7 +235,7 @@ NSString *cachedString;
     if (!file) {
         NSLog(@"%@",[[error userInfo] description]);
     }
-    [file writeString:self.dataText.text error:nil];
+    [file writeContentsOfFile:self.dataText.text shouldSteal:YES error:nil];
     [file close];
     [self.dataText resignFirstResponder];
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="iKM-Wy-PwW">
-                                <rect key="frame" x="0.0" y="64" width="607" height="528"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="528"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="Div-X3-sAW"/>
@@ -54,7 +54,7 @@
                             <constraint firstItem="iKM-Wy-PwW" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="THP-e1-OA1"/>
                             <constraint firstItem="iKM-Wy-PwW" firstAttribute="top" secondItem="wTU-y6-3X3" secondAttribute="bottom" id="bEp-N4-vcF"/>
                             <constraint firstItem="wTU-y6-3X3" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="c55-h6-d5H"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="iKM-Wy-PwW" secondAttribute="trailing" constant="-27" id="hkz-0R-QwE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="iKM-Wy-PwW" secondAttribute="trailing" constant="-20" id="hkz-0R-QwE"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="iKM-Wy-PwW" secondAttribute="bottom" constant="8" id="hq1-cO-JHC"/>
                         </constraints>
                     </view>
@@ -134,7 +134,7 @@
     </scenes>
     <resources>
         <image name="backButton" width="22" height="22"/>
-        <image name="infoButton.png" width="22" height="22"/>
+        <image name="infoButton.png" width="100" height="100"/>
         <image name="logoutButton.png" width="22" height="22"/>
         <image name="saveButton" width="22" height="22"/>
     </resources>
