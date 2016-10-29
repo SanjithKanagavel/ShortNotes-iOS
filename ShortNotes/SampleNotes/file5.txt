@@ -1,0 +1,29 @@
+What’s the problem? The code we’ve just changed tells “SimpleTableViewController” to use “SimpleTableCell” class as the table cell. However, “SimpleTableViewController” doesn’t have any idea about it. That’s why Xcode displays errors.
+
+As explained in the first tutorial, a header file declares the interface of a class. For “SimpleTableViewController” to get to know “SimpleTableCell”, we have to import the “SimpleTableCell.h” in the “SimpleTableViewController.m”.
+
+SimpleTableView Controller Import
+Import SimpleTableCell.h
+By importing “SimpleTableCell.h”, the “SimpleTableViewController” knows what it is and can make use of it.
+
+Lastly, as the height of table cell is changed to 78, add the below code above “@end”.
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 78;
+}
+1
+2
+3
+4
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 78;
+}
+Now, hit the “Run” button and your SimpleTable app should look like below:
+
+SimpleTable App with Custom Cell
+Your Homework
+
+You may notice the app just displays “Time” for “Prep Time:”. I intentionally leave this for you. Try to make some changes of your code and update the preparation time. Your final app will look very similar to below:

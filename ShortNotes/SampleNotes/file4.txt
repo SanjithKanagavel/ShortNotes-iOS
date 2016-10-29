@@ -1,0 +1,25 @@
+@synthesize Directive
+
+The “@synthesize” keyword tells compiler to automatically generate code for accessing the properties we declared earlier. If you forget to include this directive, Xcode will complain like below:
+
+Xcode Missing Synthesize
+Making the Connections
+
+Save the changes and select “SimpleTableCell.xib” to go back to Interface Builder. Now we’ll make connections between the properties of the class and the Label/ImageView created in the Interface.
+
+First, select the cell and change the class to “SimpleTableCell” in “Identity Inspector”. This associates the cell view with our custom class created earlier.
+
+Now, we’ll establish the connections with the properties. Right click the “SimpleTableCell” under “Objects” to display the “Outlets” inspector. Click and hold the circle next to “nameLabel”, and drag it to the “Label – Name” object. Xcode automatically establishes the connection.
+
+Simple Table Cell Label Connection
+
+Repeat the above procedures for “prepTimeLabel” and “thumbnailImageView”:
+
+Connect “prepTimeLabel” with “Label – Time” object
+Connect “thumbnailImageView” with “ImageView” object
+After you made all the connections, it should look like this:
+
+Simple Table Cell Connections
+Updating SimpleTableViewController
+
+We have completed the design and coding for the custom table cell. Finally we come to the last part of the change – to make use of the custom cell in the SimpleTableViewController.

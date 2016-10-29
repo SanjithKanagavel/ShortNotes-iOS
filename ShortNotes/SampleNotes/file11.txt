@@ -1,0 +1,82 @@
+AppCoda
+DEALSBOOKS TUTORIALS WORKSHOPAPP SHOWCASEAPP TEMPLATEABOUT
+About AppCoda
+AppCoda is one of the leading tutorial sites for app developers and anyone who want to learn iOS programming. Some said programming is hard to learn. Some dream about having their own apps but don’t know how to get started. This is what AppCoda is all about. Our mission is to develop high quality but easy-to-read iOS programming tutorials for anyone who want to pursue app development. Learn by doing is at the heart of our approach to teaching. We believe everyone can learn programming and build apps by taking actions.
+
+In addition to free tutorials, we also provide premium learning materials (e.g. eBooks) and products such as app template for app developers to build amazing apps.
+
+Educating our readers makes what we do meaningful and fulfilling. If you want to be part of our community, subscribe to our free course or follow us on Facebook. We’re also looking for contributor to contribute high quality programming tutorials, you can contact us if you’re interested.
+
+How AppCoda was Launched
+
+It all grew out of a simple app I coded and released just because I wanted to.
+
+In 2011, I released my first app on Apple’s App Store. As excited and pleased as I was at the time, I couldn’t possibly have known how big an impact it would have on my life.
+
+It’s truly an amazing experience to develop an app. I had been programming for over 10 years and developed various kinds of business systems. But it was always on someone else’s project. Like many developers, I’d be given a slice of the project and a deadline, and that’s it. You can imagine how happy I was when releasing my own product to all users around the world. It gave me a sense of ownership and accomplishment that I couldn’t possibly get by working on someone else’s project.
+
+I didn’t get millions of sales and it didn’t make me a millionaire. What it did was prompt me to start the AppCoda blog. I figured that if launching an app made me that happy, it would do the same for other people and I wanted to help make that happen. And I found that Xcode was a pretty good tool to teach people how to code. From my experience, the best way to learn a new programming language is to “get your hands dirty” (or learn by doing). So I began to blog with this notion. Every week I’d make a programming tutorial that led people through the process of building something real.
+
+Thanks for the love and support to all the readers. My audience grew faster than I had imagined, and I started to see a community building around the blog. My readers were interacting with me and each other in respectful and helpful ways just like you’d want to see in a community of developers.
+
+Then a member of the community suggested I write an e-book just to put the blog’s tutorials in a compact, user-friendly package. I did that and it sold enough copies to encourage me to write another one, which did well enough to convince me to write a third and a fourth, and now AppCoda is my full time business, with multiple tutorial writers and hundreds of thousands of readers.
+
+Simon Ng
+Founder of AppCoda
+
+
+Our Tutorial Team
+
+Simon Ng
+
+
+Simon is the founder of AppCoda. He is also the author of Beginning iOS Programming with Swift, an iOS App Developer and a blogger. You can follow him at Facebook, Twitter and LinkedIn.
+
+Gabriel Theodoropoulos
+
+
+Gabriel has been a software developer for about two decades. He has long experience in developing software solutions for various platforms in many programming languages. Since middle-2010 he has been developing almost exclusively for iOS. Tutorials consist of the best way to share knowledge with people all over the world. Follow Gabriel at Google+ and Twitter.
+
+Gregg Mojica
+
+
+Gregg Mojica is a software engineer & CTO at Gradology, Inc., a new startup focusing on educational rewards . When not hard at work building frontend, backend, and everything-else-end code, he enjoys writing, sharing his knowledge, and photography. A software fanatic, Gregg has published several apps on the app store, including one for Cornell University, various local businesses, and startups. You can follow him on Twitter or connect with him on LinkedIn.
+
+Hossam Ghareeb
+
+
+Hossam Ghareeb is a software engineer with years of experience in iOS development. He is very interested in writing tutorials and sharing his knowledge with others. He is the author of Application Development With Swift book. You can find him on Twitter.
+
+Maxime Defauw
+
+
+Maxime Defauw is an experienced programmer and the creator of multiple apps in both the App Store and Google Play store. He is 16 years old and lives in Belgium. Recently, he got a scholarship at Apple for WWDC15 in San Francisco. Max is proficient in Objective-C, C, C# and now Swift. When he is not buried in code, you can find him in on hockey pitch or golf course. Follow him @MaximeDefauw.
+
+Sahand Edrisian
+
+
+Sahand Edrisian is a 16 year old App Craftsman. He was awarded Apple’s WWDC 2015 and 2016 Scholarship. He enjoys making apps and pushing his boundaries. Sahand enjoys thinking deeply, binge reading wikipedia articles, and playing soccer. His latest creation is the Skan app. You can find him on Facebook, LinkedIn, and Twitter.
+
+CONNECT WITH US
+
+OUR BOOKS
+
+Swift Programming book for Beginners
+AppCoda is one of the leading iOS programming communities. Our aim is to teach everyone how to build apps with high quality and easy-to-read tutorials. Learn by doing is the heart of our learning materials.
+MEET APPCODA
+About
+Our Team
+Write for Us
+Advertise
+OUR BOOKS
+Beginning iOS 10 Programming with Swift
+Written for beginners without any programming experience. Supports Xcode 8, Swift 3 and iOS 10.
+Intermediate iOS 9 Programming with Swift
+Written for developers with some iOS programming experience. The book uses a problem-solution approach to discuss the APIs and frameworks of iOS SDK.
+OUR PRODUCTS
+RSS App Template
+Save you thousands of dollars. Simply plug your own RSS feeds and turn the Xcode template into a RSS reader or a Blog reader app.
+Copyright © AppCoda. 2016 • All rights reserved.
+
+Terms of Service | Privacy Policy | RSS Feed | Contact Us
+TWITTERFACEBOOKGITHUB

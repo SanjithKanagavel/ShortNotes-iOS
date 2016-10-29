@@ -1,0 +1,22 @@
+Property and Outlet
+
+The above lines of code defines three instance variables that later to be associated with the table cell view in Interface Builder. The keyword “@property” is used to declare a property within a class in the following form:
+
+@property (attributes) type name;
+
+Referring to the lines of code above, weak and nonatomic are the attributes of the property. UILabel and UIImageView are the types, while the “nameLabel”, “prepTimeLabel” and “thumbnailImageView” are the names.
+
+So what’s IBOutlet? You can think of IBOutlet as an indicator. To associate the instances variables with the elements in the Table View Cell (i.e. SimpleTableCell.xib), we use the keyword “IBOutlet” to let Interface Builder know that they’re allowed to make connection. Later, you’ll see how to make a connection between these outlets and the objects in Interface Builder.
+
+Now, open “SimpleTableCell.m” and add the following code right below “@implementation SimpleTableCell”:
+
+
+@synthesize nameLabel = _nameLabel;
+@synthesize prepTimeLabel = _prepTimeLabel;
+@synthesize thumbnailImageView = _thumbnailImageView;
+1
+2
+3
+@synthesize nameLabel = _nameLabel;
+@synthesize prepTimeLabel = _prepTimeLabel;
+@synthesize thumbnailImageView = _thumbnailImageView;

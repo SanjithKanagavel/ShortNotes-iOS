@@ -1,0 +1,101 @@
+AppCoda
+syndicated content powered by FeedBurner
+Subscribe Now!
+...with web-based news readers. Click your choice below:
+
+addtomyyahoo4
+Subscribe with FeedlyAdd to netvibes
+Subscribe with SubToMe
+...with other readers:
+
+
+original feed View Feed XML
+
+FeedBurner makes it easy to receive content updates in My Yahoo!, Newsgator, Bloglines, and other news readers.
+
+Learn more about syndication and FeedBurner...
+
+Current Feed Content
+
+A Beginner’s Guide to Automated UI Testing in iOS
+Posted:Wed, 19 Oct 2016 16:41:39 +0000
+automated-ui-testing
+You probably have heard about automated tests before. People talk about it a lot these days, especially when the topic is about software quality. They say that if you don’t write any tests for your project, you’re in big trouble. It may not affect you at the moment. But in the long run, it would become a huge technical debt. That’s true. Project with no tests is impossibile to maintain when it gets big and there are multiple developers involved. As you change something in the code, things start to break. You don’t even know that it breaks until your […]
+
+This article, A Beginner’s Guide to Automated UI Testing in iOS, was originally published at AppCoda.
+
+
+Working with SQLite Databases in iOS with FMDB Library
+Posted:Wed, 12 Oct 2016 02:10:18 +0000
+fmdb-sqlite
+Dealing with databases and handling data in general is an important and crucial part of any app. I had covered a topic on how to manage a SQLite database using SwiftyDB some months ago on another post. Today, I’m coming back aiming to talk about databases again, but this time I’m going to present you another library that you may have known about already: The FMDB. Both of those libraries serve the same goal; to let you handle SQLite databases, and manage your app’s data efficiently. However, they’re not similar at all to the way they are used. SwiftyDB offers […]
+
+This article, Working with SQLite Databases in iOS with FMDB Library, was originally published at AppCoda.
+
+
+Introduction to User Notifications Framework in iOS 10
+Posted:Tue, 04 Oct 2016 04:30:55 +0000
+user-notifications-part1
+Hello, and welcome to the notifications in iOS 10 tutorial! Today, we will be talking about how to implement notifications in iOS 10. iOS 10 features a plethora of changes and additions to the notifications APIs, which includes a new, powerful notification request system based off of triggers, which we will talk more about shortly. The biggest change to notifications in iOS 10 is part of a framework called UserNotificationsUI, which lets us embed custom view controller in our notifications! This allows us to create powerful new notifications that simply weren’t possible before. In this tutorial, we will be covering […]
+
+This article, Introduction to User Notifications Framework in iOS 10, was originally published at AppCoda.
+
+
+The Complete Guide to Creating Your Own CocoaPods in Swift
+Posted:Wed, 28 Sep 2016 08:14:55 +0000
+cocoapods-make
+CocoaPods is a dependency manager for Xcode projects. It is an extremely useful service to add libraries and frameworks to your project. Sometimes one makes a library so game-changing and revolutionary that it is impossible not to let the world have it. Long story short, you need to know how to publish your own CocoaPod! Prerequisites In this tutorial, I will be using Xcode 8 along with Swift 3. To learn more about the changes to Swift 3, read this helpful tutorial. Currently, CocoaPods has a pre-release intended for Swift 3 and Xcode 8. To compile a Swift 3 project, […]
+
+This article, The Complete Guide to Creating Your Own CocoaPods in Swift, was originally published at AppCoda.
+
+
+Announcing Beginning iOS 10 Programming with Swift Book
+Posted:Tue, 20 Sep 2016 15:59:59 +0000
+Beginning iOS 10 Programming with Swift
+After months of work, we are thrilled to announce our updated Swift book – Beginning iOS 10 Programming with Swift. The book now fully support Swift 3, Xcode 8 and iOS 10. Not only is it compatible with latest version of Xcode and iOS, we have added over 100-page of new content to cover new features in the iOS 10 SDK (e.g. User Notifications) and Xcode 8. With over two years of development since its first release, we do not consider Swift as a brand new programming language. Swift is now solidified, more mature and ready for any application development […]
+
+This article, Announcing Beginning iOS 10 Programming with Swift Book, was originally published at AppCoda.
+
+
+A Beginner’s Guide to Auto Layout with Xcode 8
+Posted:Sun, 18 Sep 2016 15:09:12 +0000
+auto-layout-0
+Auto layout is a constraint-based layout system. It allows developers to create an adaptive UI that responds appropriately to changes in screen size and device orientation. Some beginners find it hard to learn and avoid using it. Some developers even avoid using it. But believe me, you won’t be able to live without it when developing an app today. With the release of iPhone 6/6s and 6/6s Plus, Apple’s iPhones are available in different screen sizes including 3.5-inch, 4-inch, 4.7-inch and 5.5-inch displays. Without using auto layout, it would be very hard for you to create an app that supports […]
+
+This article, A Beginner’s Guide to Auto Layout with Xcode 8, was originally published at AppCoda.
+
+
+Building Your First Web App in Swift Using Vapor
+Posted:Tue, 13 Sep 2016 08:21:54 +0000
+vapor-web-framework
+In WWDC 2015, Apple announced that Swift would be open source. Shortly after that, in December 2015, Swift’s codebase was public on GitHub. Open sourcing the Swift codebase introduces developers to a multitude of opportunities and expand the use of Swift worldwide. As expected, developers swiftly explored the various new applications of Swift (no pun intended). One such application is using swift code to power a web app which we will explore in this tutorial. Why Should I Care? There are many benefits to having a strictly typed language on the server. If you are creating a backend for your […]
+
+This article, Building Your First Web App in Swift Using Vapor, was originally published at AppCoda.
+
+
+Face Detection in iOS Using Core Image
+Posted:Tue, 06 Sep 2016 05:20:12 +0000
+face-detection-featured
+Core Image is a powerful API built into Cocoa Touch. It’s a critical piece of the iOS SDK. However, it often gets overlooked. In this tutorial, we’re going to examine Core Image’s face detection features and how to make use of this technology in your own iOS apps! What We’re Going to Build Face detection in iOS has been around since the days of iOS 5 (circa 2011) but it is often overlooked. The facial detection API allows developers to not only detect faces, but also check those faces for particular properties such as if a smile is present or […]
+
+This article, Face Detection in iOS Using Core Image, was originally published at AppCoda.
+
+
+Set up, Manage and Protect your Apple devices at Work [Sponsor]
+Posted:Thu, 01 Sep 2016 15:53:37 +0000
+If you have ever set up new devices, you know that it can require a decent amount of time to configure them. This is especially true if employees have multiple devices. After setting up the devices, keeping an inventory of them, their settings and apps, can be quite tedious. A Mobile Device Management (MDM) solution can greatly reduce the time it takes to set up and deliver ongoing management. Bushel is a cloud-based MDM solution, allowing you to inventory and manage all of them quickly at anytime from anywhere. For instance, you can configure company email accounts or enter Wi-Fi […]
+
+This article, Set up, Manage and Protect your Apple devices at Work [Sponsor], was originally published at AppCoda.
+
+
+A Beginner’s Guide to CALayer
+Posted:Mon, 29 Aug 2016 05:43:50 +0000
+calayer-featured
+Welcome! This article will teach you about a key topic in iOS: layers. You probably already know about views in iOS, but you might not know that every single view is backed by something called layer. Layers are part of the Core Animation framework. You may be wondering, “What’s the point? I never used a layer before so it might not be that important.” Whether you know it or not, your app uses layers heavily. Each and every view on iOS is backed by a layer, no matter what. Layers exist so that iOS can easily retrieve bitmap information about […]
+
+This article, A Beginner’s Guide to CALayer, was originally published at AppCoda.
+
+
+
+FeedBurner delivers the world's subscriptions wherever they need to go. Publish a feed for text or podcasting?
+You should try FeedBurner today.

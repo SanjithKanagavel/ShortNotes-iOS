@@ -1,0 +1,41 @@
+AppCoda
+DEALSBOOKS TUTORIALS WORKSHOPAPP SHOWCASEAPP TEMPLATEABOUT
+Advertise with us
+AppCoda is one of the leading iOS tutorial sites. We deliver high quality tutorial about iOS, watchOS, and tvOS development. Our readers are passionate about coding and app development. If you want to reach a large group of beginners and experience mobile developers, you will love to work with us through one of the following advertising options.
+
+Advertisements
+
+You can advertise your product or service on our site using standard sidebar advertisement.
+
+Content Sponsorship
+
+Sponsoring AppCoda is a great way to promote your product, app, service, or company directly to a wide audience of iOS developers. By sponsoring AppCoda, you will receive the following:
+
+An exclusive sponsored post for a week written by you.
+A promoted tweet to an audience of over 2,500 followers.
+A Facebook post that reaches over 10k AppCoda fans.
+Your sponsored post will also be featured in our weekly newsletter.
+
+CONNECT WITH US
+
+OUR BOOKS
+
+Swift Programming book for Beginners
+AppCoda is one of the leading iOS programming communities. Our aim is to teach everyone how to build apps with high quality and easy-to-read tutorials. Learn by doing is the heart of our learning materials.
+MEET APPCODA
+About
+Our Team
+Write for Us
+Advertise
+OUR BOOKS
+Beginning iOS 10 Programming with Swift
+Written for beginners without any programming experience. Supports Xcode 8, Swift 3 and iOS 10.
+Intermediate iOS 9 Programming with Swift
+Written for developers with some iOS programming experience. The book uses a problem-solution approach to discuss the APIs and frameworks of iOS SDK.
+OUR PRODUCTS
+RSS App Template
+Save you thousands of dollars. Simply plug your own RSS feeds and turn the Xcode template into a RSS reader or a Blog reader app.
+Copyright © AppCoda. 2016 • All rights reserved.
+
+Terms of Service | Privacy Policy | RSS Feed | Contact Us
+TWITTERFACEBOOKGITHUB
