@@ -12,7 +12,6 @@
 		C523FC871DBFC53100537253 /* NoteViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C523FC861DBFC53100537253 /* NoteViewCell.xib */; };
 		C523FC8A1DBFC63E00537253 /* NoteViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C523FC891DBFC63E00537253 /* NoteViewCell.m */; };
 		C523FC9E1DC0954100537253 /* CustomRowAction.m in Sources */ = {isa = PBXBuildFile; fileRef = C523FC9D1DC0954100537253 /* CustomRowAction.m */; };
-		C523FCA11DC0A60600537253 /* FlatColors.m in Sources */ = {isa = PBXBuildFile; fileRef = C523FCA01DC0A60600537253 /* FlatColors.m */; };
 		C523FCA41DC0AE3D00537253 /* CreateEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C523FCA31DC0AE3D00537253 /* CreateEditViewController.m */; };
 		C5709A691DBF960200AE047C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C5709A681DBF960200AE047C /* main.m */; };
 		C5709A6C1DBF960200AE047C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C5709A6B1DBF960200AE047C /* AppDelegate.m */; };
@@ -30,6 +29,7 @@
 		C5709A941DBF97B800AE047C /* libz.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C5709A931DBF97B800AE047C /* libz.1.dylib */; };
 		C5709A961DBF981600AE047C /* libc++.1.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C5709A951DBF981600AE047C /* libc++.1.dylib */; };
 		C5731EAA1DC2379D00F78C14 /* NoteData.m in Sources */ = {isa = PBXBuildFile; fileRef = C5731EA91DC2379D00F78C14 /* NoteData.m */; };
+		C5731F031DC4E2CA00F78C14 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = C5731F021DC4E2CA00F78C14 /* Utility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,8 +43,6 @@
 		C523FC991DC07DFD00537253 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		C523FC9C1DC0954100537253 /* CustomRowAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomRowAction.h; sourceTree = "<group>"; };
 		C523FC9D1DC0954100537253 /* CustomRowAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomRowAction.m; sourceTree = "<group>"; };
-		C523FC9F1DC0A60600537253 /* FlatColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlatColors.h; sourceTree = SOURCE_ROOT; };
-		C523FCA01DC0A60600537253 /* FlatColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlatColors.m; sourceTree = SOURCE_ROOT; };
 		C523FCA21DC0AE3D00537253 /* CreateEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CreateEditViewController.h; sourceTree = "<group>"; };
 		C523FCA31DC0AE3D00537253 /* CreateEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreateEditViewController.m; sourceTree = "<group>"; };
 		C5709A641DBF960200AE047C /* ShortNotes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortNotes.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,10 +63,12 @@
 		C5709A8A1DBF967B00AE047C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		C5709A8D1DBF96E400AE047C /* Dropbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Dropbox.framework; sourceTree = "<group>"; };
 		C5709A8F1DBF976300AE047C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		C5709A931DBF97B800AE047C /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = ../../../../../../usr/lib/libz.1.dylib; sourceTree = "<group>"; };
-		C5709A951DBF981600AE047C /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "../../../../../../usr/lib/libc++.1.dylib"; sourceTree = "<group>"; };
+		C5709A931DBF97B800AE047C /* libz.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.dylib; path = /usr/lib/libz.1.dylib; sourceTree = "<absolute>"; };
+		C5709A951DBF981600AE047C /* libc++.1.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.1.dylib"; path = "/usr/lib/libc++.1.dylib"; sourceTree = "<absolute>"; };
 		C5731EA91DC2379D00F78C14 /* NoteData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NoteData.m; sourceTree = "<group>"; };
 		C5731EAB1DC2452B00F78C14 /* NoteData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoteData.h; sourceTree = "<group>"; };
+		C5731F011DC4E2C900F78C14 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utility.h; path = ../Utility.h; sourceTree = "<group>"; };
+		C5731F021DC4E2CA00F78C14 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utility.m; path = ../Utility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,17 +105,6 @@
 		C5709A5B1DBF960200AE047C = {
 			isa = PBXGroup;
 			children = (
-				C5709A951DBF981600AE047C /* libc++.1.dylib */,
-				C5709A931DBF97B800AE047C /* libz.1.dylib */,
-				C5709A8F1DBF976300AE047C /* libz.tbd */,
-				C5709A8D1DBF96E400AE047C /* Dropbox.framework */,
-				C5709A8A1DBF967B00AE047C /* QuartzCore.framework */,
-				C5709A881DBF967100AE047C /* SystemConfiguration.framework */,
-				C5709A861DBF966900AE047C /* CFNetwork.framework */,
-				C5709A841DBF966100AE047C /* Security.framework */,
-				C5709A821DBF965900AE047C /* UIKit.framework */,
-				C5709A801DBF965200AE047C /* Foundation.framework */,
-				C5709A7E1DBF964C00AE047C /* CoreGraphics.framework */,
 				C5709A661DBF960200AE047C /* ShortNotes */,
 				C5709A651DBF960200AE047C /* Products */,
 				27146610B31F6A7CA6A2332F /* Pods */,
@@ -134,27 +123,27 @@
 		C5709A661DBF960200AE047C /* ShortNotes */ = {
 			isa = PBXGroup;
 			children = (
-				C523FC9F1DC0A60600537253 /* FlatColors.h */,
-				C523FCA01DC0A60600537253 /* FlatColors.m */,
+				C5731EA91DC2379D00F78C14 /* NoteData.m */,
+				C5731EAB1DC2452B00F78C14 /* NoteData.h */,
 				C5709A6A1DBF960200AE047C /* AppDelegate.h */,
 				C5709A6B1DBF960200AE047C /* AppDelegate.m */,
 				C523FC7C1DBF9E4B00537253 /* SplashScreen.storyboard */,
+				C5709A701DBF960200AE047C /* Main.storyboard */,
 				C5709A6D1DBF960200AE047C /* ViewController.h */,
 				C5709A6E1DBF960200AE047C /* ViewController.m */,
-				C5731EA91DC2379D00F78C14 /* NoteData.m */,
-				C5731EAB1DC2452B00F78C14 /* NoteData.h */,
+				C523FCA21DC0AE3D00537253 /* CreateEditViewController.h */,
+				C523FCA31DC0AE3D00537253 /* CreateEditViewController.m */,
+				C523FC9C1DC0954100537253 /* CustomRowAction.h */,
+				C523FC9D1DC0954100537253 /* CustomRowAction.m */,
 				C523FC861DBFC53100537253 /* NoteViewCell.xib */,
 				C523FC881DBFC63E00537253 /* NoteViewCell.h */,
 				C523FC891DBFC63E00537253 /* NoteViewCell.m */,
-				C5709A701DBF960200AE047C /* Main.storyboard */,
-				C523FCA21DC0AE3D00537253 /* CreateEditViewController.h */,
-				C523FCA31DC0AE3D00537253 /* CreateEditViewController.m */,
-				C5709A731DBF960200AE047C /* Assets.xcassets */,
-				C5709A781DBF960200AE047C /* Info.plist */,
-				C5709A671DBF960200AE047C /* Supporting Files */,
 				C523FC991DC07DFD00537253 /* Constants.h */,
-				C523FC9C1DC0954100537253 /* CustomRowAction.h */,
-				C523FC9D1DC0954100537253 /* CustomRowAction.m */,
+				C5731F011DC4E2C900F78C14 /* Utility.h */,
+				C5731F021DC4E2CA00F78C14 /* Utility.m */,
+				C5709A781DBF960200AE047C /* Info.plist */,
+				C5709A731DBF960200AE047C /* Assets.xcassets */,
+				C5709A671DBF960200AE047C /* Supporting Files */,
 			);
 			path = ShortNotes;
 			sourceTree = "<group>";
@@ -170,6 +159,17 @@
 		E1CC6E2F8776663872E3A845 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C5709A951DBF981600AE047C /* libc++.1.dylib */,
+				C5709A931DBF97B800AE047C /* libz.1.dylib */,
+				C5709A8F1DBF976300AE047C /* libz.tbd */,
+				C5709A8D1DBF96E400AE047C /* Dropbox.framework */,
+				C5709A8A1DBF967B00AE047C /* QuartzCore.framework */,
+				C5709A881DBF967100AE047C /* SystemConfiguration.framework */,
+				C5709A861DBF966900AE047C /* CFNetwork.framework */,
+				C5709A841DBF966100AE047C /* Security.framework */,
+				C5709A821DBF965900AE047C /* UIKit.framework */,
+				C5709A801DBF965200AE047C /* Foundation.framework */,
+				C5709A7E1DBF964C00AE047C /* CoreGraphics.framework */,
 				3D64949385CF2E30C3BBBAE4 /* libPods-ShortNotes.a */,
 			);
 			name = Frameworks;
@@ -297,7 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C523FCA11DC0A60600537253 /* FlatColors.m in Sources */,
+				C5731F031DC4E2CA00F78C14 /* Utility.m in Sources */,
 				C5709A6F1DBF960200AE047C /* ViewController.m in Sources */,
 				C5709A6C1DBF960200AE047C /* AppDelegate.m in Sources */,
 				C523FC8A1DBFC63E00537253 /* NoteViewCell.m in Sources */,

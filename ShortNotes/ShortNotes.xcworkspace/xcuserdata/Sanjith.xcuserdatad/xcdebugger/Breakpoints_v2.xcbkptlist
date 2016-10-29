@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "115"
-            endingLineNumber = "115"
+            startingLineNumber = "107"
+            endingLineNumber = "107"
             landmarkName = "-syncStatusAnimation:secondCircle:thridCircle:"
             landmarkType = "5">
          </BreakpointContent>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "119"
-            endingLineNumber = "119"
+            startingLineNumber = "111"
+            endingLineNumber = "111"
             landmarkName = "-syncStatusAnimation:secondCircle:thridCircle:"
             landmarkType = "5">
          </BreakpointContent>
@@ -106,11 +106,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "97"
+            endingLineNumber = "97"
             landmarkName = "-showSyncStatus"
             landmarkType = "5">
          </BreakpointContent>
@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/CreateEditViewController.m"
-            timestampString = "499347196.618987"
+            timestampString = "499444636.844238"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-textView:shouldChangeTextInRange:replacementText:"
             landmarkType = "5">
          </BreakpointContent>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -153,28 +153,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "-viewWillAppear:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ShortNotes/CreateEditViewController.m"
-            timestampString = "499347196.618987"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "185"
-            endingLineNumber = "185"
+            startingLineNumber = "181"
+            endingLineNumber = "181"
             landmarkName = "-keyboardWillBeHidden:"
             landmarkType = "5">
          </BreakpointContent>
@@ -186,11 +170,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/CreateEditViewController.m"
-            timestampString = "499347196.618987"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "135"
-            endingLineNumber = "135"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "-keyboardDidShow:"
             landmarkType = "5">
          </BreakpointContent>
@@ -201,28 +185,12 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ShortNotes/CreateEditViewController.m"
-            timestampString = "499347196.618987"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "146"
-            endingLineNumber = "146"
-            landmarkName = "-keyboardDidChangeFrame:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "253"
-            endingLineNumber = "253"
+            startingLineNumber = "240"
+            endingLineNumber = "240"
             landmarkName = "-loginDropBox"
             landmarkType = "5">
          </BreakpointContent>
@@ -234,44 +202,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "59"
-            endingLineNumber = "59"
-            landmarkName = "-viewWillAppear:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "-viewWillAppear:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "520"
-            endingLineNumber = "520"
-            landmarkName = "-dropBoxInit"
+            startingLineNumber = "428"
+            endingLineNumber = "428"
+            landmarkName = "-dropBoxAccountInit"
             landmarkType = "5">
             <Locations>
                <Location
@@ -344,11 +280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "500"
-            endingLineNumber = "500"
+            startingLineNumber = "405"
+            endingLineNumber = "405"
             landmarkName = "-accountUpdated:"
             landmarkType = "5">
          </BreakpointContent>
@@ -360,11 +296,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "505"
-            endingLineNumber = "505"
+            startingLineNumber = "410"
+            endingLineNumber = "410"
             landmarkName = "-accountUpdated:"
             landmarkType = "5">
          </BreakpointContent>
@@ -376,11 +312,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/AppDelegate.m"
-            timestampString = "499351083.582759"
+            timestampString = "499444636.844238"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "-application:openURL:sourceApplication:annotation:"
             landmarkType = "5">
          </BreakpointContent>
@@ -392,11 +328,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "539"
-            endingLineNumber = "539"
+            startingLineNumber = "450"
+            endingLineNumber = "450"
             landmarkName = "@implementation ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -408,11 +344,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -424,11 +360,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -440,11 +376,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
+            startingLineNumber = "328"
+            endingLineNumber = "328"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -456,59 +392,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "269"
-            endingLineNumber = "269"
-            landmarkName = "-logoutAction:"
-            landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[ViewController logoutAction:]"
-                  moduleName = "ShortNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/phil/Desktop/GitHub%20Sources/ShortNotes-iOS/ShortNotes/ShortNotes/ViewController.m"
-                  timestampString = "499273971.970108"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "261"
-                  endingLineNumber = "261"
-                  offsetFromSymbolStart = "276">
-               </Location>
-               <Location
-                  shouldBeEnabled = "No"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__31-[ViewController logoutAction:]_block_invoke"
-                  moduleName = "ShortNotes"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/phil/Desktop/GitHub%20Sources/ShortNotes-iOS/ShortNotes/ShortNotes/ViewController.m"
-                  timestampString = "499273971.970257"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "261"
-                  endingLineNumber = "261"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "556"
-            endingLineNumber = "556"
+            startingLineNumber = "473"
+            endingLineNumber = "473"
             landmarkName = "-loadFiles"
             landmarkType = "5">
          </BreakpointContent>
@@ -536,11 +424,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "355"
-            endingLineNumber = "355"
+            startingLineNumber = "323"
+            endingLineNumber = "323"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -552,11 +440,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "354"
-            endingLineNumber = "354"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
             landmarkName = "-tableView:cellForRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -568,11 +456,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "327"
-            endingLineNumber = "327"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "-tableView:didSelectRowAtIndexPath:"
             landmarkType = "5">
          </BreakpointContent>
@@ -584,11 +472,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "391"
-            endingLineNumber = "391"
+            startingLineNumber = "367"
+            endingLineNumber = "367"
             landmarkName = "-prepareForSegue:sender:"
             landmarkType = "5">
          </BreakpointContent>
@@ -600,11 +488,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "336"
-            endingLineNumber = "336"
+            startingLineNumber = "301"
+            endingLineNumber = "301"
             landmarkName = "-tableView:numberOfRowsInSection:"
             landmarkType = "5">
          </BreakpointContent>
@@ -616,11 +504,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "174"
-            endingLineNumber = "174"
+            startingLineNumber = "167"
+            endingLineNumber = "167"
             landmarkName = "-showLoginScreen"
             landmarkType = "5">
          </BreakpointContent>
@@ -632,11 +520,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "497"
-            endingLineNumber = "497"
+            startingLineNumber = "402"
+            endingLineNumber = "402"
             landmarkName = "-accountUpdated:"
             landmarkType = "5">
          </BreakpointContent>
@@ -648,12 +536,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "509"
-            endingLineNumber = "509"
-            landmarkName = "-dropBoxInit"
+            startingLineNumber = "417"
+            endingLineNumber = "417"
+            landmarkName = "-dropBoxAccountInit"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -664,11 +552,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "548"
-            endingLineNumber = "548"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
             landmarkName = "-loadFiles"
             landmarkType = "5">
          </BreakpointContent>
@@ -680,11 +568,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "489"
-            endingLineNumber = "489"
+            startingLineNumber = "391"
+            endingLineNumber = "391"
             landmarkName = "-getDropboxAccount"
             landmarkType = "5">
          </BreakpointContent>
@@ -696,11 +584,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "490"
-            endingLineNumber = "490"
+            startingLineNumber = "392"
+            endingLineNumber = "392"
             landmarkName = "-getDropboxAccount"
             landmarkType = "5">
          </BreakpointContent>
@@ -712,11 +600,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "533"
-            endingLineNumber = "533"
+            startingLineNumber = "444"
+            endingLineNumber = "444"
             landmarkName = "-reloadData"
             landmarkType = "5">
          </BreakpointContent>
@@ -728,11 +616,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "141"
-            endingLineNumber = "141"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
             landmarkName = "-hideSyncStatus"
             landmarkType = "5">
          </BreakpointContent>
@@ -744,11 +632,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "80"
-            endingLineNumber = "80"
+            startingLineNumber = "77"
+            endingLineNumber = "77"
             landmarkName = "-showSyncStatus"
             landmarkType = "5">
          </BreakpointContent>
@@ -760,11 +648,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499355592.890053"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "140"
-            endingLineNumber = "140"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "-hideSyncStatus"
             landmarkType = "5">
          </BreakpointContent>
@@ -776,11 +664,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499426625.337399"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "572"
-            endingLineNumber = "572"
+            startingLineNumber = "491"
+            endingLineNumber = "491"
             landmarkName = "-loadFileData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -792,11 +680,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499426625.337399"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "573"
-            endingLineNumber = "573"
+            startingLineNumber = "492"
+            endingLineNumber = "492"
             landmarkName = "-loadFileData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -808,11 +696,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499426625.337399"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "575"
-            endingLineNumber = "575"
+            startingLineNumber = "494"
+            endingLineNumber = "494"
             landmarkName = "-loadFileData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -824,11 +712,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499423679.410199"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "565"
-            endingLineNumber = "565"
+            startingLineNumber = "484"
+            endingLineNumber = "484"
             landmarkName = "-loadFileData:"
             landmarkType = "5">
          </BreakpointContent>
@@ -840,13 +728,75 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ShortNotes/ViewController.m"
-            timestampString = "499426625.337399"
+            timestampString = "499447364.537792"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "574"
-            endingLineNumber = "574"
+            startingLineNumber = "493"
+            endingLineNumber = "493"
             landmarkName = "-loadFileData:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShortNotes/CreateEditViewController.h"
+            timestampString = "499444636.844238"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "@interface CreateEditViewController"
+            landmarkType = "2">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[CreateEditViewController dbFileInfo]"
+                  moduleName = "ShortNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/phil/Desktop/GitHub%20Sources/ShortNotes-iOS/ShortNotes/ShortNotes/CreateEditViewController.h"
+                  timestampString = "499442173.770739"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[CreateEditViewController setDbFileInfo:]"
+                  moduleName = "ShortNotes"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/phil/Desktop/GitHub%20Sources/ShortNotes-iOS/ShortNotes/ShortNotes/CreateEditViewController.h"
+                  timestampString = "499442173.771067"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ShortNotes/Constants.h"
+            timestampString = "499447364.537792"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "82"
+            endingLineNumber = "82">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

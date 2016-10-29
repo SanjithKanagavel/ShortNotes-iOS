@@ -7,14 +7,11 @@
 //
 
 #import "CreateEditViewController.h"
-#import "Constants.h"
-#import "SCLAlertView.h"
 
 @implementation CreateEditViewController
 
 BOOL keyboardClosed;
 BOOL keyboardShown;
-DBFilesystem *filesystem;
 SCLAlertView *alertView;
 NSUInteger keyBoardHeight;
 NSString *cachedString;
@@ -22,16 +19,16 @@ NSString *cachedString;
 #pragma mark - View Functions
 
 /*
-* Base function loading base screen
-*/
+ * Function to load base screen
+ */
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initLocalData];
+    [self initLocalVariables];
     [self configureBaseScreen];
 }
 
 /*
- * Registering keyboard notifications when view appears
+ * Function for Registering keyboard notifications when view appears
  */
 - (void)viewWillAppear:(BOOL)animated
 {
@@ -40,7 +37,7 @@ NSString *cachedString;
 }
 
 /*
- * Unregistering keyboard notifications when view hides
+ * Function for Unregistering keyboard notifications when view hides
  */
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -51,7 +48,7 @@ NSString *cachedString;
 /*
  * Function to init local data required for the view
  */
--(void) initLocalData {
+-(void) initLocalVariables {
     cachedString = self.dataTextStr;
     keyBoardHeight = 0;
     keyboardClosed = true;
@@ -61,11 +58,11 @@ NSString *cachedString;
 #pragma mark - Base Screen related functions
 
 /*
- * Configuring base screen settings
+ * Function for Configuring base screen settings
  */
 -(void) configureBaseScreen {
-  [self styleNaviBar];
-  self.dataText.font = [UIFont fontWithName:fontName size:20.0];
+    [Utility styleNaviBar];
+    self.dataText.font = [UIFont fontWithName:fontName size:20.0];
     [self.dataText setUserInteractionEnabled:YES];
     self.dataText.scrollEnabled = NO;
     self.dataText.scrollEnabled = YES;
@@ -77,21 +74,7 @@ NSString *cachedString;
 }
 
 /*
- * Styling function for NavigationBar
- */
--(void) styleNaviBar {
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:naviTxt] forBarMetrics:UIBarMetricsDefault];
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
-    shadow.shadowOffset = CGSizeMake(0, 1);
-    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
-                                                           shadow, NSShadowAttributeName,
-                                                           [UIFont fontWithName:fontName size:21.0], NSFontAttributeName, nil]];
-}
-
-/*
- * Responding to Done button when clicked Keyboard is hidden
+ * Function for responding to Done button when clicked Keyboard is hidden
  */
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
@@ -100,10 +83,26 @@ NSString *cachedString;
     return YES;
 }
 
+/*
+ * Function triggered when received memory warning
+ */
+- (void)didReceiveMemoryWarning {
+    [Utility showCustomAlert:self image:[UIImage imageNamed:infoButtonLStr] title:memoryWarnTitle subTitle:memoryWarnSubtitle];
+    [super didReceiveMemoryWarning];
+}
+
+/*
+ * Function to hide status bar
+ */
+-(BOOL)prefersStatusBarHidden{
+    return YES;
+}
+
+
 #pragma mark - Keyboard handling functions
 
 /*
- * Registering Keyboard notifications
+ * Function for Registering Keyboard notifications
  */
 - (void)registerForKeyboardNotifications
 {
@@ -116,11 +115,9 @@ NSString *cachedString;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidChangeFrame:) name:UIKeyboardDidChangeFrameNotification object:nil];
 }
 
-
 /*
- * Unregistering Keyboard notifications
+ * Function for Unregistering Keyboard notifications
  */
-
 - (void)deregisterFromKeyboardNotifications
 {
     
@@ -129,7 +126,7 @@ NSString *cachedString;
 }
 
 /*
- * Keyboard Shown
+ * Function triggers when Keyboard shown
  */
 - (void)keyboardDidShow: (NSNotification *) notif{
     keyboardShown = true;
@@ -137,12 +134,11 @@ NSString *cachedString;
 
 
 /*
- * Triggers when keyboard is shown and shrinks the textview accordingly
+ * Function that triggers when keyboard is shown and shrinks the textview accordingly
  */
 - (void)keyboardDidChangeFrame:(NSNotification*)notification{
     NSDictionary *keyboardInfo = [notification userInfo];
     CGRect keyboardSize = [[keyboardInfo valueForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
-    NSLog(@"%f",keyboardSize.size.height);
     if( !keyboardShown ) {
         return;
     }
@@ -192,26 +188,11 @@ NSString *cachedString;
 
 - (IBAction)returnAction:(id)sender {
     [self.dataText resignFirstResponder];
-    if(![cachedString isEqualToString:self.dataText.text])
-    {
-        alertView = [[SCLAlertView alloc] init];
-        alertView.shouldDismissOnTapOutside = YES;
-        alertView.showAnimationType = SlideOutFromCenter;
-        alertView.hideAnimationType = SlideOutToCenter;
-        SCLButton *confirmtButton = [alertView addButton:discard actionBlock:^{
-            [self dismissViewControllerAnimated:YES completion:nil];
-        }];
-        SCLButton *cancelButton = [alertView addButton:cancel actionBlock:^{ }];
-        ButtonFormatBlock buttonFormatBlock = ^NSDictionary* (void) {
-            NSMutableDictionary *buttonConfig = [[NSMutableDictionary alloc] init];
-            buttonConfig[cornerRadiusStr] = logoutBtnCR;
-            return buttonConfig;
-        };
-        
-        confirmtButton.buttonFormatBlock = buttonFormatBlock;
-        cancelButton.buttonFormatBlock = buttonFormatBlock;
-        UIColor *color = [UIColor colorWithRed:65.0/255.0 green:64.0/255.0 blue:144.0/255.0 alpha:1.0];
-        [alertView showCustom:self image:[UIImage imageNamed:saveButtonLStr] color:color title:discardDraft subTitle:nil closeButtonTitle:nil duration:0.0f];
+    if(![cachedString isEqualToString:self.dataText.text]) {
+        [Utility showConfirmAlert:self image:[UIImage imageNamed:saveButtonLStr] title:discardDraft subTitle:nil confirmAction:^{
+                [self dismissViewControllerAnimated:YES completion:nil];
+            } cancelAction:^{}
+        ];
     }
     else {
         [self dismissViewControllerAnimated:YES completion:nil];
@@ -223,34 +204,23 @@ NSString *cachedString;
     DBFile *file;
     DBError *error = nil;
     if(self.isCreate) {
-        NSString * fileName = [NSString stringWithFormat:@"%lld", [@(floor([[NSDate date] timeIntervalSince1970] * 1000)) longLongValue]];
-         path = [self.rootPath childPath:[fileName stringByAppendingString:@".txt"]];
+        NSString * fileName = [NSString stringWithFormat:lldFormat, [@(floor([[NSDate date] timeIntervalSince1970] * 1000)) longLongValue]];
+         path = [self.rootPath childPath:[fileName stringByAppendingString:txtFormat]];
          file = [self.fileSystem createFile:path error:&error];
     }
     else {
         path = self.dbFileInfo.path;
         file = [self.fileSystem openFile:path error:&error];
     }
-    
-    if (!file) {
-        NSLog(@"%@",[[error userInfo] description]);
+    if(!file) {
+        [Utility showCustomAlert:self image:[UIImage imageNamed:infoButtonLStr] title:dataerrorTitle subTitle:dataerrorSubtitle];
     }
-    [file writeContentsOfFile:self.dataText.text shouldSteal:YES error:nil];
-    [file close];
-    [self.dataText resignFirstResponder];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    else {
+        [file writeContentsOfFile:self.dataText.text shouldSteal:YES error:nil];
+        [file close];
+        [self.dataText resignFirstResponder];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
-
-#pragma mark - Other View Functions
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-
--(BOOL)prefersStatusBarHidden{
-    return YES;
-}
-
 
 @end

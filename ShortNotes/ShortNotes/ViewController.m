@@ -1,24 +1,14 @@
-    //
+//
 //  ViewController.m
 //  ShortNotes
 //
 //  Created by Sanjith Kanagavel on 25/10/16.
 //  Copyright © 2016 Sanjith Kanagavel. All rights reserved.
 //
-#import "CreateEditViewController.h"
+
 #import "ViewController.h"
-#import "NoteViewCell.h"
-#import "SCLAlertView.h"
-#import "Constants.h"
-#import "CustomRowAction.h"
-#import "Dropbox/Dropbox.h"
-#import "NoteData.h"
 
 @implementation ViewController
-
-SCLAlertView *alert;
-
-DBAccountManager *accountManager;
 
 UIView *syncStatusView;
 UIView *loginView;
@@ -28,87 +18,89 @@ NSArray *colors;
 NSMutableArray *notesArray;
 NSUInteger deleteIndex;
 NSUInteger clickIndex;
-BOOL isCreate = true;
-BOOL isSyncing = false;
-
+BOOL isCreate;
+BOOL viewDataRequested;
+BOOL isSyncing;
 double SCREEN_CENTER_X;
 double SCREEN_CENTER_Y;
 
 #pragma mark - View Functions
+
 /*
- * Base function loading login screen and base screen
+ * Function loading login screen and base screen
  */
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initLocalVariables];
     [self configureBaseScreen];
-    [self getDropboxAccount];
-    if(!self.account) {
-        [self showLoginScreen];
-    }
-    else {
-        [self dropBoxInit];
-    }
 }
 
 /*
- * Function after loading but before viewing
- */
--(void) viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-}
-
-
-/*
- * Loading the custom alertview because of performance purpose
+ * Function that intializes dropbox after view appear
  */
 -(void) viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    alert = [[SCLAlertView alloc] init];
+    if(!viewDataRequested) {
+        viewDataRequested = true;
+        [self getDropboxAccount];
+        if(!self.account) {
+            [self showLoginScreen];
+        }
+        else {
+            [self dropBoxAccountInit];
+        }
+    }
 }
 
+/*
+ * Function that notifies after memory warning.
+ */
+- (void)didReceiveMemoryWarning {
+    [Utility showCustomAlert:self image:[UIImage imageNamed:infoButtonLStr] title:memoryWarnTitle subTitle:memoryWarnSubtitle];
+    [super didReceiveMemoryWarning];
+}
+
+/*
+ * Function to hide status bar
+ */
+-(BOOL)prefersStatusBarHidden{
+    return YES;
+}
 
 
 #pragma mark - Sync Status Functions
 
 /*
- * Function declaration of SyncStatusBar
+ * Function to show SyncStatusBar
  */
 -(void) showSyncStatus {
-    
     UIView *c1,*c2,*c3;
     if(syncStatusView == nil) {
      syncStatusView = [[UIView alloc]initWithFrame:CGRectMake(0,self.naviBar.frame.size.height, SCREEN_CENTER_X*2, 30)];
     }
     else {
-        return;
+        return; //Sync view is already in progress
     }
     float statusCenterX = syncStatusView.frame.size.width/2;
-    [syncStatusView setBackgroundColor:[self colorFromHexString:orangeColor1]];
+    [syncStatusView setBackgroundColor:[Utility colorFromHexString:orangeColor1]];
     c1 = [[UIView alloc]initWithFrame:CGRectMake(statusCenterX-10,5,20,20)];
     c1.layer.cornerRadius=10;
-    [c1 setBackgroundColor:[self colorFromHexString:orangeColor2]];
+    [c1 setBackgroundColor:[Utility colorFromHexString:orangeColor2]];
     c2 = [[UIView alloc]initWithFrame:CGRectMake(statusCenterX+30,5,20,20)];
     c2.layer.cornerRadius=10;
-    [c2 setBackgroundColor:[self colorFromHexString:orangeColor2]];
-    
+    [c2 setBackgroundColor:[Utility colorFromHexString:orangeColor2]];
     c3 = [[UIView alloc]initWithFrame:CGRectMake(statusCenterX-50,5,20,20)];
     c3.layer.cornerRadius=10;
-    [c3 setBackgroundColor:[self colorFromHexString:orangeColor2]];
-    c1.alpha = 0;
-    c2.alpha = 0;
-    c3.alpha = 0;
-    [syncStatusView addSubview:c3];
-    [syncStatusView addSubview:c2];
-    [syncStatusView addSubview:c1];
+    [c3 setBackgroundColor:[Utility colorFromHexString:orangeColor2]];
+    c1.alpha = 0; c2.alpha = 0; c3.alpha = 0;
+    [syncStatusView addSubview:c3]; [syncStatusView addSubview:c2]; [syncStatusView addSubview:c1];
     syncStatusView.alpha = 0.8;
     [self.view insertSubview:syncStatusView atIndex:1];
     [self syncStatusAnimation:c1 secondCircle:c2 thridCircle:c3];
 }
 
 /*
- * SyncStatusBar Animation
+ * Function to animate SyncStatusBar
  */
 -(void) syncStatusAnimation : (UIView *) c1 secondCircle:(UIView *) c2 thridCircle :(UIView *) c3 {
     [UIView animateWithDuration:0.4 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
@@ -134,7 +126,7 @@ double SCREEN_CENTER_Y;
 }
 
 /*
- * Hide SyncStatusBar and Animation
+ * Function to hide SyncStatusBar
  */
 -(void) hideSyncStatus {
     if(!syncStatusView) {
@@ -160,7 +152,7 @@ double SCREEN_CENTER_Y;
     [addButton setCenter:CGPointMake((SCREEN_CENTER_X*2)-40, (SCREEN_CENTER_Y*2)-40)];
     [addButton addTarget:self action:@selector(createNewNoteAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:addButton];
-    [self styleNaviBar];
+    [Utility styleNaviBar];
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.tableView.indicatorStyle = UIScrollViewIndicatorStyleBlack;
     self.tableView.separatorColor = [UIColor clearColor];
@@ -170,6 +162,7 @@ double SCREEN_CENTER_Y;
 /*
  * Function to show Login Screen
  */
+
 -(void) showLoginScreen {
     if(loginView) {
         return ;
@@ -211,19 +204,17 @@ double SCREEN_CENTER_Y;
 }
 
 /*
- * Styling function for NavigationBar
+ * Function for setting local variables required
  */
--(void) styleNaviBar {
-    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:naviTxt] forBarMetrics:UIBarMetricsDefault];
-    NSShadow *shadow = [[NSShadow alloc] init];
-    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
-    shadow.shadowOffset = CGSizeMake(0, 1);
-    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
-                                                           [UIColor colorWithRed:245.0/255.0 green:245.0/255.0 blue:245.0/255.0 alpha:1.0], NSForegroundColorAttributeName,
-                                                           shadow, NSShadowAttributeName,
-                                                           [UIFont fontWithName:fontName size:21.0], NSFontAttributeName, nil]];
-    
+-(void) initLocalVariables {
+    SCREEN_CENTER_X=[[UIScreen mainScreen]bounds].size.width/2;
+    SCREEN_CENTER_Y=[[UIScreen mainScreen]bounds].size.height/2;
+    colors = @[ turquoise, greenSea,emerald,nephritis,peterRiver,belizeHole,amethyst,wisteria,sunFlower,
+                orange,carrot,pumpkin,alizarin,pomegranate,concrete,asbestos,wetAsphalt,midnightBlue ];
+    viewDataRequested  = false;
+    isSyncing = false;
 }
+
 
 
 #pragma mark - Actions
@@ -233,104 +224,78 @@ double SCREEN_CENTER_Y;
  */
 -(void) createNewNoteAction {
     isCreate = true;
-    [self _presentWithSegueIdentifier:showCreateEditStr animated:NO];
+    [self performSegueWithIdentifier:showCreateEditStr sender:nil];
 }
 
 /*
  * Function to show info alert section
  */
 - (IBAction)infoAction:(id)sender {
-    alert = [[SCLAlertView alloc] init];
-    alert.shouldDismissOnTapOutside = YES;
-    alert.showAnimationType = SlideOutFromCenter;
-    alert.hideAnimationType = SlideOutToCenter;
-    UIColor *color = [UIColor colorWithRed:65.0/255.0 green:64.0/255.0 blue:144.0/255.0 alpha:1.0];
-    [alert showCustom:self image:[UIImage imageNamed:infoButtonLStr] color:color title:infoTitle subTitle:infoSubtitle closeButtonTitle:nil duration:0.0f];
+    [Utility showCustomAlert:self image:[UIImage imageNamed:infoButtonLStr] title:infoTitle subTitle:infoSubtitle];
 }
+
 /*
- * Login Dropbox Function
+ * Function to login Dropbox
  */
 - (void) loginDropBox {
     if(self.account) {
         [self hideLoginScreen];
         return;
     }
-    [accountManager linkFromController:self];
+    [self.accountManager linkFromController:self];
 }
 
 /*
- * Function to show logout alert section
+ * Function to logout Dropbox
  */
 - (IBAction)logoutAction:(id)sender {
-    alert = [[SCLAlertView alloc] init];
-    alert.shouldDismissOnTapOutside = YES;
-    alert.showAnimationType = SlideOutFromCenter;
-    alert.hideAnimationType = SlideOutToCenter;
-    SCLButton *logoutButton = [alert addButton:confirm actionBlock:^{
-        [[accountManager.linkedAccounts objectAtIndex:0] unlink];
-        [self.fileSystem removeObserver:self];
-        self.account = nil;
-        self.fileSystem = nil;
-    }];
-    SCLButton *cancelButton = [alert addButton:cancel actionBlock:^{ }];
-    ButtonFormatBlock buttonFormatBlock = ^NSDictionary* (void) {
-        NSMutableDictionary *buttonConfig = [[NSMutableDictionary alloc] init];
-        buttonConfig[cornerRadiusStr] = logoutBtnCR;
-        return buttonConfig;
-    };
-    
-    logoutButton.buttonFormatBlock = buttonFormatBlock;
-    cancelButton.buttonFormatBlock = buttonFormatBlock;
-
-    UIColor *color = [UIColor colorWithRed:65.0/255.0 green:64.0/255.0 blue:144.0/255.0 alpha:1.0];
-    [alert showCustom:self image:[UIImage imageNamed:logoutButtonLStr] color:color title:logoutTitle subTitle:nil closeButtonTitle:nil duration:0.0f];
+    [Utility showConfirmAlert:self image:[UIImage imageNamed:logoutButtonLStr] title:logoutTitle subTitle:nil confirmAction:^{
+            [[self.accountManager.linkedAccounts objectAtIndex:0] unlink];
+            [self.fileSystem removeObserver:self];
+            self.account = nil;
+            self.fileSystem = nil;
+        } cancelAction:^{}
+     ];
 }
 
 /*
- * Delete note action
+ * Function to delete a note 
  */
 -(void) deleteTaskAction {
-    alert = [[SCLAlertView alloc] init];
-    alert.shouldDismissOnTapOutside = YES;
-    alert.showAnimationType = SlideOutFromCenter;
-    alert.hideAnimationType = SlideOutToCenter;
-    SCLButton *confrimButton = [alert addButton:confirm actionBlock:^{
-        DBFileInfo *info = ((NoteData *)[notesArray objectAtIndex:deleteIndex]).dbFileInfo;
-        if ([self.fileSystem deletePath:info.path error:nil]) {
-            [self.tableView setEditing:NO animated:YES];
-        }
-        else {
-            
-        }
-    }];
-    SCLButton *cancelButton = [alert addButton:cancel actionBlock:^{
-    }];
-    
-    ButtonFormatBlock buttonFormatBlock = ^NSDictionary* (void) {
-        NSMutableDictionary *buttonConfig = [[NSMutableDictionary alloc] init];
-        buttonConfig[cornerRadiusStr] = logoutBtnCR;
-        return buttonConfig;
-    };
-    confrimButton.buttonFormatBlock = buttonFormatBlock;
-    cancelButton.buttonFormatBlock = buttonFormatBlock;
-    
-    UIColor *color = [UIColor colorWithRed:65.0/255.0 green:64.0/255.0 blue:144.0/255.0 alpha:1.0];
-    [alert showCustom:self image:[UIImage imageNamed:deleteBtn] color:color title:confirmDelete subTitle:nil closeButtonTitle:nil duration:0.0f];
+    [Utility showConfirmAlert:self image:[UIImage imageNamed:deleteBtn] title:confirmDelete subTitle:nil confirmAction:^{
+            DBFileInfo *info = ((NoteData *)[notesArray objectAtIndex:deleteIndex]).dbFileInfo;
+            if ([self.fileSystem deletePath:info.path error:nil]) {
+                [self.tableView setEditing:NO animated:YES];
+            }
+            else {
+                [Utility showCustomAlert:self image:[UIImage imageNamed:infoButtonLStr] title:datadeleteTitle subTitle:datadeleteSubtitle];
+            }
+        } cancelAction:^{}
+    ];
 }
 
 #pragma mark - UITableView Functions
 
+/*
+ * Function to show note when clicked on a row
+ */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     isCreate = false;
     clickIndex = [indexPath row];
-    [self _presentWithSegueIdentifier:showCreateEditStr animated:NO];
+    [self performSegueWithIdentifier:showCreateEditStr sender:nil];
     [self.tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
+/*
+ * Function to show number of section
+ */
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
+/*
+ * Function to show number of rows
+ */
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger count = (!notesArray) ? 0 : [notesArray count];
     if(count == 0){
@@ -341,6 +306,9 @@ double SCREEN_CENTER_Y;
     return count;
 }
 
+/*
+ * Function to Load Custom Cell
+ */
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (!notesArray) {
         return nil;
@@ -354,15 +322,21 @@ double SCREEN_CENTER_Y;
     cell = [nib objectAtIndex:0];
     NoteData *data = [notesArray objectAtIndex:[indexPath row]];
     cell.notesData.text = data.noteDesc;
-    [cell setViewColour:[self colorForName:colors[colorIndex]]];
+    [cell setViewColour:[Utility colorFromHexString:colors[colorIndex]]];
     colorIndex++;
     return cell;
 }
 
+/*
+ * Function that allows show row actions
+ */
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
 
+/*
+ * Function to show custom row actions
+ */
 -(NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
    
     CustomRowAction *add = [CustomRowAction rowActionWithStyle:UITableViewRowActionStyleNormal title:deleteStr icon:[UIImage imageNamed:deleteBtn] handler:^(UITableViewRowAction *action, NSIndexPath *indexPath){
@@ -373,10 +347,9 @@ double SCREEN_CENTER_Y;
     return @[add];
 }
 
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-}
-
+/*
+ * Function to set height of Custom Cell
+ */
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 105;
@@ -386,6 +359,9 @@ double SCREEN_CENTER_Y;
 
 #pragma mark - Navigation
 
+/*
+ * Function to prepare segue with actions before navigating
+ */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     CreateEditViewController *vc = [segue destinationViewController];
@@ -404,95 +380,24 @@ double SCREEN_CENTER_Y;
     vc.rootPath = self.root;
 }
 
-- (void)_presentWithSegueIdentifier:(NSString *)segueIdentifier animated:(BOOL)animated
-{
-    if (animated) {
-        [self performSegueWithIdentifier:segueIdentifier sender:nil];
-    } else {
-        [UIView performWithoutAnimation:^{
-            [self performSegueWithIdentifier:segueIdentifier sender:nil];
-        }];
-    }
-}
-
-#pragma mark - Other View Functions
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
-
-
--(BOOL)prefersStatusBarHidden{
-    return YES;
-}
-
-#pragma mark - Utility function
-
-/*
- * Function to create UIColor using Hex Value
- */
-- (UIColor *)colorFromHexString:(NSString *)hexString {
-    unsigned rgbValue = 0;
-    NSScanner *scanner = [NSScanner scannerWithString:hexString];
-    [scanner setScanLocation:1]; // bypass '#' character
-    [scanner scanHexInt:&rgbValue];
-    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
-}
-
-/*
- * Function to load material colours for rows
- */
-
-- (UIColor *)colorForName:(NSString *)name {
-    NSString *sanitizedName = [name stringByReplacingOccurrencesOfString:space withString:emptyStr];
-    NSString *selectorString = [NSString stringWithFormat:flatColorFormat, sanitizedName];
-    Class colorClass = [UIColor class];
-    return [colorClass performSelector:NSSelectorFromString(selectorString)];
-}
-
-
-/*
- * Function for setting local variables like screen center x - y
- */
--(void) initLocalVariables {
-    SCREEN_CENTER_X=[[UIScreen mainScreen]bounds].size.width/2;
-    SCREEN_CENTER_Y=[[UIScreen mainScreen]bounds].size.height/2;
-    colors = @[
-               @"Turquoise",
-               @"Green Sea",
-               @"Emerald",
-               @"Nephritis",
-               @"Peter River",
-               @"Belize Hole",
-               @"Amethyst",
-               @"Wisteria",
-               @"Wet Asphalt",
-               @"Midnight Blue",
-               @"Sun Flower",
-               @"Orange",
-               @"Carrot",
-               @"Pumpkin",
-               @"Alizarin",
-               @"Pomegranate",
-               @"Concrete",
-               @"Asbestos"
-               ];
-}
-
-
 #pragma mark - Dropbox Functions
 
+/*
+ * Function to configure account manager,account and set its observer
+ */
 -(void) getDropboxAccount {
-    
-    accountManager= [[DBAccountManager alloc] initWithAppKey:@"udg615mw45s5izb" secret:@"lggw7vjvrqmsq7h"]; //Identifies the application
-    [DBAccountManager setSharedManager:accountManager];
-    self.account = [accountManager.linkedAccounts objectAtIndex:0];
+    self.accountManager= [[DBAccountManager alloc] initWithAppKey:apiKey secret:apiSecret];
+    [DBAccountManager setSharedManager:self.accountManager];
+    self.account = [self.accountManager.linkedAccounts objectAtIndex:0];
     __weak ViewController *weakSelf = self;
-    [accountManager addObserver:self block: ^(DBAccount *acc) {
+    [self.accountManager addObserver:self block: ^(DBAccount *acc) {
         [weakSelf accountUpdated:acc];
     }];
 }
 
+/*
+ * Function that observers whenever user account manager changes
+ */
 -(void) accountUpdated : (DBAccount *) account {
     if (account.linked) {
         [self hideLoginScreen];
@@ -504,7 +409,10 @@ double SCREEN_CENTER_Y;
     }
 }
 
--(void) dropBoxInit {
+/*
+ * Function that configure dropbox account
+ */
+-(void) dropBoxAccountInit {
     if( self.account ) {
         if(!self.fileSystem) {
             self.fileSystem = [[DBFilesystem alloc] initWithAccount:self.account];
@@ -530,6 +438,9 @@ double SCREEN_CENTER_Y;
     }
 }
 
+/*
+ * Function that reloads tableview whenever contents changes
+ */
 -(void) reloadData {
     [self.tableView reloadData];
     [self hideSyncStatus];
@@ -538,12 +449,18 @@ double SCREEN_CENTER_Y;
 
 #pragma mark - private methods
 
+/*
+ * Function to sort notes for viewing
+ */
 NSInteger sortFileInfos(id obj1, id obj2, void *ctx) {
     DBFileInfo *file1 = (DBFileInfo *) obj1;
     DBFileInfo *file2 = (DBFileInfo *) obj2;
     return [[file1.path name] compare:[file2.path name]];
 }
 
+/*
+ * Function to sync notes. Retrieve files from dropbox
+ */
 - (void)loadFiles {
     if(isSyncing) {
         return;
@@ -558,7 +475,9 @@ NSInteger sortFileInfos(id obj1, id obj2, void *ctx) {
     });
 }
 
-
+/*
+ * Function to sync notes. Retrieve file data from dropbox
+ */
 -(void) loadFileData : (NSMutableArray *) mContents {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^() {
         NSMutableArray *tempArray = [[NSMutableArray alloc]init];
@@ -578,6 +497,8 @@ NSInteger sortFileInfos(id obj1, id obj2, void *ctx) {
             }
             else {
                 data.noteDesc = [[error userInfo]description];
+                [Utility showCustomAlert:self image:[UIImage imageNamed:infoButtonLStr] title:dataerrorTitle subTitle:dataerrorSubtitle];
+                
             }
             data.dbFileInfo = info;
             [tempArray addObject:data];
@@ -595,6 +516,9 @@ NSInteger sortFileInfos(id obj1, id obj2, void *ctx) {
 
 #pragma  mark - No Note Label functions
 
+/*
+ * Function to show "No Notes Available"
+ */
 -(void) showNoNoteTextLabel {
     if(noNoteTextLbl)
     {
@@ -608,6 +532,9 @@ NSInteger sortFileInfos(id obj1, id obj2, void *ctx) {
     [self.view addSubview:noNoteTextLbl];
 }
 
+/*
+ * Function to hide "No Notes Available"
+ */
 -(void) hideNoNoteTextLabel {
     if(!noNoteTextLbl) {
         return;
