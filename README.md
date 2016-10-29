@@ -12,7 +12,6 @@ iPhone <br>
 <img src="https://github.com/SanjithKanagavel/ShortNotes-iOS/blob/master/ShortNotes/Raw%20Images/Screenshots%20-%20iPhone/IMG_3742.PNG" width="250px"/>
 </p>
 
-##### iPad 
 <p align="center">
 iPad <br>
 <img src="https://github.com/SanjithKanagavel/ShortNotes-iOS/blob/master/ShortNotes/Raw%20Images/Screenshots%20-%20iPad/Simulator%20Screen%20Shot%2029-Oct-2016%2C%202.48.11%20PM.png" width="200px"/>
