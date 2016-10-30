@@ -12,7 +12,6 @@
 
 BOOL keyboardClosed;
 BOOL keyboardShown;
-SCLAlertView *alertView;
 NSUInteger keyBoardHeight;
 NSString *cachedString;
 
@@ -186,6 +185,9 @@ NSString *cachedString;
 
 #pragma mark - Actions
 
+/*
+ * Function to return back to prev screen
+ */
 - (IBAction)returnAction:(id)sender {
     [self.dataText resignFirstResponder];
     if(![cachedString isEqualToString:self.dataText.text]) {
@@ -199,26 +201,48 @@ NSString *cachedString;
     }
 }
 
+/*
+ * Function to save existing/new notes
+ */
 - (IBAction)saveAction:(id)sender {
+    [self.dataText resignFirstResponder];
+    if([self.dataText.text isEqual:emptyStr]) {
+        [Utility showCustomAlert:self image:[UIImage imageNamed:infoButtonLStr] title:emptyTextTitle subTitle:emptyTextSubtitle];
+        
+    }
+    else {
+        [self saveFunction];
+    }
+}
+
+/*
+ * Function to save existing/new notes
+ */
+-(void) saveFunction {
     DBPath *path;
     DBFile *file;
     DBError *error = nil;
     if(self.isCreate) {
         NSString * fileName = [NSString stringWithFormat:lldFormat, [@(floor([[NSDate date] timeIntervalSince1970] * 1000)) longLongValue]];
-         path = [self.rootPath childPath:[fileName stringByAppendingString:txtFormat]];
-         file = [self.fileSystem createFile:path error:&error];
+        path = [self.rootPath childPath:[fileName stringByAppendingString:txtFormat]];
+        file = [self.fileSystem createFile:path error:&error];
     }
     else {
         path = self.dbFileInfo.path;
-        file = [self.fileSystem openFile:path error:&error];
+        if(path) {
+            file = [self.fileSystem openFile:path error:&error];
+        }
+        else { // file was not found on path returned error
+            [Utility showCustomAlert:self image:[UIImage imageNamed:infoButtonLStr] title:datamissingTitle subTitle:datamissingSubtitle];
+            return;
+        }
     }
-    if(!file) {
+    if ( !path || !file ) {
         [Utility showCustomAlert:self image:[UIImage imageNamed:infoButtonLStr] title:dataerrorTitle subTitle:dataerrorSubtitle];
     }
     else {
-        [file writeContentsOfFile:self.dataText.text shouldSteal:YES error:nil];
+        [file writeString:self.dataText.text error:nil];
         [file close];
-        [self.dataText resignFirstResponder];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }

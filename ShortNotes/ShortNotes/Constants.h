@@ -43,6 +43,7 @@ static NSString *deleteStr = @"Delete";
 static NSString *createStr = @"Create Note";
 static NSString *editStr = @"Edit Note";
 static NSString *noNoteLabel = @"No Notes Available";
+static NSString *loadingNotesLabel = @"Loading notes.";
 static NSString *infoTitle = @"Made with";
 static NSString *infoSubtitle = @"Steve and Apple 🍎";
 static NSString *infoButtonTitle = @"Cool";
@@ -58,7 +59,11 @@ static NSString *dataerrorTitle = @"Data load error.";
 static NSString *dataerrorSubtitle = @"Problem loading data. Please try again later.";
 static NSString *datadeleteTitle = @"Data delete error.";
 static NSString *datadeleteSubtitle = @"Problem delete data. Please try again later.";
-
+static NSString *datamissingTitle = @"File don't exists.";
+static NSString *datamissingSubtitle = @"Problem saving data. Required file doesn't exist.";
+static NSString *emptyTextTitle = @"Empty Description";
+static NSString *emptyTextSubtitle = @"Description can't be empty.";
+static NSString *syncInProgress = @"Sync in progress";
 
 //Flat Colors. Credits to : https://flatuicolors.com/
 static NSString *turquoise = @"#1abc9c";
@@ -73,7 +78,7 @@ static NSString *sunFlower = @"#f1c40f";
 static NSString *orange = @"#f39c12";
 static NSString *carrot = @"#e67e22";
 static NSString *pumpkin = @"#d35400";
-static NSString *alizarin = @"#d35400";
+static NSString *alizarin = @"#e74c3c";
 static NSString *pomegranate = @"#c0392b";
 static NSString *concrete = @"#95a5a6";
 static NSString *asbestos = @"#7f8c8d";
@@ -82,4 +87,5 @@ static NSString *midnightBlue = @"#2c3e50";
 static NSString *alertColor = @"#414090";
 static NSString *orangeColor1 = @"#E65100";
 static NSString *orangeColor2 = @"#FFC107";
+static NSString *whiteColor = @"#FFFFFF";
 

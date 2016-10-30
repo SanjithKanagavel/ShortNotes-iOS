@@ -123,8 +123,8 @@
 		C5709A661DBF960200AE047C /* ShortNotes */ = {
 			isa = PBXGroup;
 			children = (
-				C5731EA91DC2379D00F78C14 /* NoteData.m */,
 				C5731EAB1DC2452B00F78C14 /* NoteData.h */,
+				C5731EA91DC2379D00F78C14 /* NoteData.m */,
 				C5709A6A1DBF960200AE047C /* AppDelegate.h */,
 				C5709A6B1DBF960200AE047C /* AppDelegate.m */,
 				C523FC7C1DBF9E4B00537253 /* SplashScreen.storyboard */,

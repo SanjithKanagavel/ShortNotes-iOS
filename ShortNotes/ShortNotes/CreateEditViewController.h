@@ -15,9 +15,9 @@
 @interface CreateEditViewController : UIViewController<UITextViewDelegate>
     @property (strong, nonatomic) IBOutlet UINavigationBar *navigationBar;
     @property (strong, nonatomic) IBOutlet UITextView *dataText;
-    @property (weak, nonatomic) NSString* dataTextStr;
-    @property (weak, nonatomic) DBFileInfo *dbFileInfo;
-    @property (weak, nonatomic) DBFilesystem *fileSystem;
-    @property (weak, nonatomic) DBPath *rootPath;
+    @property (strong, nonatomic) NSString* dataTextStr;
+    @property (strong, nonatomic) DBFileInfo *dbFileInfo;
+    @property (strong, nonatomic) DBFilesystem *fileSystem;
+    @property (strong, nonatomic) DBPath *rootPath;
     @property BOOL isCreate;
 @end

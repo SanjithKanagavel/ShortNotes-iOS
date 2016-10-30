@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface CustomRowAction : UITableViewRowAction
-@property UIImage *actionImage;
-@property UIFont *font;
-+ (instancetype)rowActionWithStyle:(UITableViewRowActionStyle)style title:(NSString *)title icon:(UIImage*)icon handler:(void (^)(UITableViewRowAction *action, NSIndexPath *indexPath))handler;
+    @property UIImage *actionImage;
+    @property UIFont *font;
+    + (instancetype)rowActionWithStyle:(UITableViewRowActionStyle)style title:(NSString *)title icon:(UIImage*)icon handler:(void (^)(UITableViewRowAction *action, NSIndexPath *indexPath))handler;
 @end

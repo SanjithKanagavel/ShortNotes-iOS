@@ -23,6 +23,9 @@
     @property (strong, nonatomic) DBFilesystem *fileSystem;
     @property (strong, nonatomic) DBPath *root;
     @property (strong, nonatomic) DBAccountManager *accountManager;
+    @property (strong, nonatomic) UIView *syncStatusView;
+    @property (strong, nonatomic) UIView *loginView;
+    @property (strong, nonatomic) UILabel *noNoteTextLbl;
     -(void) dropBoxAccountInit;
 @end
 
