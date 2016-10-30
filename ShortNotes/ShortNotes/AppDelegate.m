@@ -11,7 +11,7 @@
 #import <Dropbox/Dropbox.h>
 
 @interface AppDelegate ()
-    @property(nonatomic,retain)UINavigationController *rootController;
+
 @end
 
 @implementation AppDelegate

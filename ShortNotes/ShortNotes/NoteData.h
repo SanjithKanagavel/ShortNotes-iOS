@@ -10,7 +10,7 @@
 #import "Dropbox/Dropbox.h"
 
 @interface NoteData : NSObject
-    @property NSString *noteDesc;
-    @property DBFileInfo *dbFileInfo;
+    @property(strong,nonatomic) NSString *noteDesc;
+    @property(strong,nonatomic) DBFileInfo *dbFileInfo;
 @end
 

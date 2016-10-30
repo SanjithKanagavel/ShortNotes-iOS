@@ -19,5 +19,5 @@
     @property (strong, nonatomic) DBFileInfo *dbFileInfo;
     @property (strong, nonatomic) DBFilesystem *fileSystem;
     @property (strong, nonatomic) DBPath *rootPath;
-    @property BOOL isCreate;
+    @property (nonatomic) BOOL isCreate;
 @end

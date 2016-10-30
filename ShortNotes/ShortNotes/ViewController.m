@@ -76,7 +76,7 @@ double SCREEN_CENTER_Y;
     else {
         return; //Sync view is already in progress
     }
-    [self.syncStatusView setBackgroundColor:[Utility colorFromHexString:orangeColor1]];
+    self.syncStatusView.backgroundColor = [Utility colorFromHexString:orangeColor1];
     UILabel *syncLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.syncStatusView.frame.size.width, self.syncStatusView.frame.size.height)];
     syncLable.center = CGPointMake(self.syncStatusView.frame.size.width/2, self.syncStatusView.frame.size.height/2);
     syncLable.textAlignment  = NSTextAlignmentCenter;
@@ -96,7 +96,7 @@ double SCREEN_CENTER_Y;
         return;
     }
     [UIView animateWithDuration:2 delay:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
-        [self.syncStatusView setFrame:CGRectMake(self.syncStatusView.frame.origin.x, self.syncStatusView.frame.origin.y-30, self.syncStatusView.frame.size.width,self.syncStatusView.frame.size.height )];
+        self.syncStatusView.frame = CGRectMake(self.syncStatusView.frame.origin.x, self.syncStatusView.frame.origin.y-30, self.syncStatusView.frame.size.width,self.syncStatusView.frame.size.height );
     } completion:^(BOOL finished){
         [self.syncStatusView removeFromSuperview];
         self.syncStatusView = nil;
@@ -110,9 +110,9 @@ double SCREEN_CENTER_Y;
  */
 -(void) configureBaseScreen {
     UIButton *addButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    addButton.frame = CGRectMake(0,0,60, 60);
+    addButton.center = CGPointMake((SCREEN_CENTER_X*2)-40, (SCREEN_CENTER_Y*2)-40);
     [addButton setBackgroundImage:[UIImage imageNamed:addNoteBtn] forState:UIControlStateNormal];
-    [addButton setFrame:CGRectMake(0,0,60, 60)];
-    [addButton setCenter:CGPointMake((SCREEN_CENTER_X*2)-40, (SCREEN_CENTER_Y*2)-40)];
     [addButton addTarget:self action:@selector(createNewNoteAction) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:addButton];
     [Utility styleNaviBar];
@@ -131,19 +131,22 @@ double SCREEN_CENTER_Y;
         return ;
     }
     self.loginView = [[UIView alloc]initWithFrame:CGRectMake(self.view.frame.origin.x, self.view.frame.origin.y,self.view.frame.size.width, self.view.frame.size.height)];
+    
     UIVisualEffect *blurEffect;
     blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+    
     UIVisualEffectView *visualEffectView;
     visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
     visualEffectView.frame = self.loginView.bounds;
+    
     UIImageView *loginImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconImg]];
-    [loginImage setFrame:CGRectMake(0, 0, 100, 100)];
-    [loginImage setCenter:CGPointMake(SCREEN_CENTER_X,SCREEN_CENTER_Y)];
+    loginImage.frame = CGRectMake(0, 0, 100, 100);
+    loginImage.center = CGPointMake(SCREEN_CENTER_X,SCREEN_CENTER_Y);
     
     UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [loginButton setBackgroundImage:[UIImage imageNamed:loginBtn] forState:UIControlStateNormal];
     loginButton.frame = CGRectMake(0, 0, 210, 55);
-    [loginButton setCenter:CGPointMake(SCREEN_CENTER_X,(SCREEN_CENTER_Y*2)-100)];
+    loginButton.center = CGPointMake(SCREEN_CENTER_X,(SCREEN_CENTER_Y*2)-100);
+    [loginButton setBackgroundImage:[UIImage imageNamed:loginBtn] forState:UIControlStateNormal];
     [loginButton addTarget:self action:@selector(loginDropBox) forControlEvents:UIControlEventTouchUpInside];
     [self.loginView addSubview:visualEffectView];
     [self.loginView addSubview:loginImage];

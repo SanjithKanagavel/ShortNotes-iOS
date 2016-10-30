@@ -11,8 +11,7 @@
 #import "SCLAlertView.h"
 #import "Constants.h"
 
-@interface Utility : NSObject
-    @property(weak,nonatomic) SCLAlertView *alert;
+@interface Utility : NSObject    
     + (UIColor *) colorFromHexString:(NSString *)hexString;
     + (void) styleNaviBar;
     + (void) showCustomAlert:(UIViewController *)controller image:(UIImage *)image title:(NSString *)title subTitle:(NSString *)subTitle;

@@ -62,11 +62,10 @@ NSString *cachedString;
 -(void) configureBaseScreen {
     [Utility styleNaviBar];
     self.dataText.font = [UIFont fontWithName:fontName size:20.0];
-    [self.dataText setUserInteractionEnabled:YES];
-    self.dataText.scrollEnabled = NO;
+    self.dataText.userInteractionEnabled = YES;
     self.dataText.scrollEnabled = YES;
     [self.dataText sizeToFit];
-    [self.dataText setContentInset:UIEdgeInsetsMake(-10.0, 0, -5.0, 0)];
+    self.dataText.contentInset = UIEdgeInsetsMake(-10.0, 0, -5.0, 0);
     self.dataText.delegate = self;
     self.dataText.text = self.dataTextStr;
     self.navigationBar.topItem.title =  (self.isCreate) ? createStr : editStr ;
