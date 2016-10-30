@@ -23,6 +23,6 @@ A simple iOS note taking app using Dropbox Sync SDK. That helps to create/update
 ##### 3. Install pod files.
 <pre>pod install</pre>
 
-##### 4. Open Workspace file./
-<pre>open ShortNotes.xcworkspace</pre>
+##### 4. Open Workspace file.
+<pre>open ShortNotes.xcworkspace/</pre>
 
